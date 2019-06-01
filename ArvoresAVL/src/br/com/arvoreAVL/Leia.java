@@ -6,55 +6,54 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Leia {
-	
-	//Bora cambada// aa
 
-  public static void main(String[] args) {
+	// Bora cambada// aa
 
-    Leia obj = new Leia();
-    obj.run();
+	public static void main(String[] args) {
 
-  }
+		Leia obj = new Leia();
+		obj.run();
 
-  public void run() {
+	}
 
-    String arquivoCSV = "./arq/Professores.csv";
-    BufferedReader br = null;
-    String linha = "";
-    String csvDivisor = ",";
-    try {
+	public void run() {
 
-        br = new BufferedReader(new FileReader(arquivoCSV));
-        while ((linha = br.readLine()) != null ) {
+		String arquivoCSV = "./arq/Professores.csv";
+		BufferedReader br = null;
+		String linha = "";
+		String csvDivisor = ",";
+		try {
 
-            String[] professores = linha.split(csvDivisor);
+			br = new BufferedReader(new FileReader(arquivoCSV));
+			while ((linha = br.readLine()) != null) {
 
-            System.out.println(professores[professores.length-1]);
+				String[] professores = linha.split(csvDivisor);
 
-        }
+				System.out.println(professores[professores.length - 1]);
 
-    } catch (FileNotFoundException e) {
-    	
-        e.printStackTrace();
-        
-    } catch (IOException e) {
-    	
-        e.printStackTrace();
-        
-    } finally {
-    	
-        if (br != null) {
-        	
-            try {
-            	
-                br.close();
-                
-            } catch (IOException e) {
-            	
-                e.printStackTrace();
-            }
-        }
-    }
-  }
+			}
 
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		} finally {
+
+			if (br != null) {
+
+				try {
+
+					br.close();
+
+				} catch (IOException e) {
+
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
