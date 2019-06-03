@@ -15,14 +15,14 @@ public class PilhaTeste {
 		// remove itens da pilha
 		try {
 			Object removedObject = null;
-			while (true) {
+			while (!stack.imprimeTamanho().equals("Tamanho da Lista: 0")) {
 				removedObject = stack.desempilha();// utiliza o método pop
 				System.out.printf("%s removido da pilha\n", removedObject);
 				stack.print();
-			}// fim do While
-		}// fim do trry
+			} // fim do While
+		} // fim do trry
 		catch (EmptyListException e) {
 			e.printStackTrace();
-		}// fim do catch
+		} // fim do catch
 	}// fim do main
 }// fim da classe StackInheritanceTest

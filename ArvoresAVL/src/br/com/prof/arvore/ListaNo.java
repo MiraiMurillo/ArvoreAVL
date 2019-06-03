@@ -8,20 +8,20 @@ public class ListaNo {
 	ListaNo(Object object) {
 		this(object, null);
 	}// Fim do construtor de um argumento ListaNo
-	
+
 	// construtor cria ListaNo que referencia
-	
+
 	// Object e o próximo ListaNo
 	ListaNo(Object object, ListaNo node) {
 		data = object;
 		proximoNo = node;
 	}// fim do construtor de dois argumentos ListaNo
-	
-	//seta um objeto data
-	public void setData(Object data){
+
+	// seta um objeto data
+	public void setData(Object data) {
 		this.data = data;
 	}
-	
+
 	// retorna referência aos dados no nó
 	Object getData() {
 		return data; // retorna Object nesse nó

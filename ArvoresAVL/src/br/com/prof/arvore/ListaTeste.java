@@ -2,9 +2,9 @@ package br.com.prof.arvore;
 
 public class ListaTeste {
 	public static void main(String[] args) {
-		
+
 		Lista list = new Lista(); // cria o contêiner de List
-		
+
 		// insere inteiros na lista
 		list.insereNoInicio(-1);
 		list.print();
@@ -16,7 +16,7 @@ public class ListaTeste {
 		list.print();
 		list.insereNoInicio(3);
 		list.print();
-		
+
 		// remove objetos da lista; imprime depois de cada remoção
 		try {
 			Object removedObject = list.removeNoInicio();
@@ -34,11 +34,10 @@ public class ListaTeste {
 			removedObject = list.removeNoFim();
 			System.out.printf("%s removido\n", removedObject);
 			list.print();
-		}// fim do try
+		} // fim do try
 		catch (EmptyListException e) {
 			e.printStackTrace();
-		}// fim do catch
-		
-		
+		} // fim do catch
+
 	}// fim de main
 }// fim da classe ListTest

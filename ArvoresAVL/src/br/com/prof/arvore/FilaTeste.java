@@ -17,14 +17,14 @@ public class FilaTeste {
 		// remove os objetos da fila
 		try {
 			Object removedObject;
-			while (true) {
+			while (!queue.imprimeTamanho().equals("Tamanho da Lista: 0")) {
 				removedObject = queue.desenfileira();// utiliza método dequeue
-				System.out.printf("%s saiu da Fila, próximo poderá ser atendido\n",	removedObject);
+				System.out.printf("%s saiu da Fila, próximo poderá ser atendido\n", removedObject);
 				queue.print();
-			}// fim do while
-		}// fim de try
+			} // fim do while
+		} // fim de try
 		catch (EmptyListException e) {
 			e.printStackTrace();// imprime a pilha de erros
-		}// fim do catch
+		} // fim do catch
 	}// fim de main
 }// fim da classe QueueTest
