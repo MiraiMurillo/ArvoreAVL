@@ -22,14 +22,13 @@ public class Leia {
 		BufferedReader br = null;
 		String linha = "";
 		String csvDivisor = ",";
+		String[] professores = null;
 		try {
 
 			br = new BufferedReader(new FileReader(arquivoCSV));
 			while ((linha = br.readLine()) != null) {
 
-				String[] professores = linha.split(csvDivisor);
-
-				System.out.println(professores[professores.length - 1]);
+				professores = linha.split(csvDivisor);
 
 			}
 
