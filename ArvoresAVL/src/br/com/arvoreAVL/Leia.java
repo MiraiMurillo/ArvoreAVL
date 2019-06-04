@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Leia {
 
-	// Versão instável
+	// Versão instável de merda
 
 	public static void main(String[] args) {
 
