@@ -1,49 +1,81 @@
 package br.com.prof.arvore;
 
+import java.util.Scanner;
+
 public class Principal {
+
+	private static Scanner entrada;
 
 	public static void main(String[] args) {
 
-		// Lista
-		Lista list = new Lista(); // cria o contêiner de List
+		entrada = new Scanner(System.in);
 
-		// insere inteiros na lista
-		list.insereNoInicio(-1);
-		list.print();
-		list.insereNoInicio(0);
-		list.print();
-		list.insereNoFim(1);
-		list.print();
-		list.insereNoFim(5);
-		list.print();
-		list.insereNoInicio(3);
-		list.print();
+		Lista list = new Lista();
+		Pilha stack = new Pilha();
+		Fila queue = new Fila();
+
+		int cod;
+		String elem;
+
+		// insere na lista
+
+		System.out.println("\n--Lista--");
+		System.out.println("\n--Inserção--");
+
+		do {
+			System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Inicio\n2 - Fim");
+			cod = entrada.nextInt();
+			if (cod == 1) {
+				System.out.println("\nQual elemento deseja inserir? ");
+				elem = entrada.next();
+				list.insereNoInicio(elem);
+				list.print();
+			} else if (cod == 2) {
+				System.out.println("\nQual elemento deseja inserir? ");
+				elem = entrada.next();
+				list.insereNoFim(elem);
+				list.print();
+			}
+			System.out.println("Deseja Inserir Mais Itens?\n1 - Sim\n2 - Não");
+		} while (cod == 1);
 
 		// remove objetos da lista; imprime depois de cada remoção
 		try {
-			Object removedObject = list.removeNoInicio();
-			System.out.printf("%s removido\n", removedObject);
-			list.print();
-			removedObject = list.removeNoInicio();
-			System.out.printf("%s removido\n", removedObject);
-			list.print();
-			removedObject = list.removeNoFim();
-			System.out.printf("%s removido\n", removedObject);
-			list.print();
-			removedObject = list.removeNoFim();
-			System.out.printf("%s removido\n", removedObject);
-			list.print();
-			removedObject = list.removeNoFim();
-			System.out.printf("%s removido\n", removedObject);
-			list.print();
+			Object removedObject;
+			System.out.println("\n--Remoção--");
+			do {
+				if (list.estaVazia()) {
+					System.out.println("A Lista Está Vazia.");
+				} else if (!list.estaVazia()) {
+					System.out.println("\nDeseja Remover?\n0 - Não/Pular\n1 - Inicio\n2 - Fim");
+					if (cod == 1) {
+						System.out.println();
+						removedObject = list.removeNoInicio();
+						System.out.printf("%s removido\n", removedObject);
+						list.print();
+					} else if (cod == 2) {
+						System.out.println();
+						removedObject = list.removeNoFim();
+						System.out.printf("%s removido\n", removedObject);
+						list.print();
+					}
+					System.out.println("Deseja Inserir Mais Itens?\n1 - Sim\n2 - Não");
+				}
+			} while (cod == 1);
+
 		} // fim do try
 		catch (EmptyListException e) {
 			e.printStackTrace();
 		} // fim do catch
 
 		// fila
-		Fila queue = new Fila();
+		System.out.println("--Fila--");
+		System.out.println("--Inserção--");
 		// utiliza o método enqueue
+		do {
+			System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Sim");
+			cod = entrada.nextInt();
+		} while (cod == 1);
 		queue.enfileira(-1);
 		queue.print();
 		queue.enfileira(0);
@@ -67,7 +99,6 @@ public class Principal {
 			e.printStackTrace();// imprime a pilha de erros
 		} // fim do catch
 
-		Pilha stack = new Pilha();
 		// utliza método push
 		stack.empilha(-1);
 		stack.print();
