@@ -9,6 +9,8 @@ public class Leia {
 
 	// Versão instável de merda
 
+	private String[] professores;
+
 	public static void main(String[] args) {
 
 		Leia obj = new Leia();
@@ -21,14 +23,14 @@ public class Leia {
 		BufferedReader br = null;
 		String linha = "";
 		String csvDivisor = ",";
-		String[] professores = null;
+		setProfessores(null);
 
 		try {
 
 			br = new BufferedReader(new FileReader(arquivoCSV));
 			while ((linha = br.readLine()) != null) {
 
-				professores = linha.split(csvDivisor);
+				setProfessores(linha.split(csvDivisor));
 
 			}
 
@@ -54,5 +56,13 @@ public class Leia {
 				}
 			}
 		}
+	}
+
+	public String[] getProfessores() {
+		return professores;
+	}
+
+	public void setProfessores(String[] professores) {
+		this.professores = professores;
 	}
 }
