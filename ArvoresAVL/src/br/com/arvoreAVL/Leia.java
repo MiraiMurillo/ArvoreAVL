@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Leia {
 
-	// Bora cambada// aa
+	// Versão instável
 
 	public static void main(String[] args) {
 
@@ -23,13 +23,14 @@ public class Leia {
 		String linha = "";
 		String csvDivisor = ",";
 		String[] professores = null;
+		
 		try {
 
 			br = new BufferedReader(new FileReader(arquivoCSV));
 			while ((linha = br.readLine()) != null) {
 
 				professores = linha.split(csvDivisor);
-
+				
 			}
 
 		} catch (FileNotFoundException e) {
