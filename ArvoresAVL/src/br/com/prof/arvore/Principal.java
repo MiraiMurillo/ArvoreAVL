@@ -20,7 +20,7 @@ public class Principal {
 		// insere na lista
 
 		System.out.println("\n--Lista--");
-		System.out.println("\n--Inserção--");
+		System.out.println("--Inserção--");
 
 		do {
 			do {
@@ -46,34 +46,35 @@ public class Principal {
 		// remove objetos da lista; imprime depois de cada remoção
 		try {
 			Object removedObject;
-			System.out.println("\n--Remoção--");
-			do {
-				if (list.estaVazia()) {
-					System.out.println("A Lista Está Vazia.");
-					cod = 0;
-				} else if (!list.estaVazia()) {
-					do {
-						System.out.println("\nDeseja Remover?\n0 - Não/Pular\n1 - No Inicio\n2 - No Fim");
-						cod = entrada.nextInt();
-						if (cod < 0 || cod > 2) {
-							System.out.println("\nCódigo inválido.");
+			if (cod != 0) {
+				System.out.println("\n--Remoção--");
+				do {
+					if (list.estaVazia()) {
+						System.out.println("A Lista Está Vazia.");
+						cod = 0;
+					} else if (!list.estaVazia()) {
+						do {
+							System.out.println("\nDeseja Remover?\n0 - Não/Pular\n1 - No Inicio\n2 - No Fim");
+							cod = entrada.nextInt();
+							if (cod < 0 || cod > 2) {
+								System.out.println("\nCódigo inválido.");
+							}
+						} while (cod < 0 || cod > 2);
+
+						if (cod == 1) {
+							System.out.println();
+							removedObject = list.removeNoInicio();
+							System.out.printf("%s removido\n", removedObject);
+							list.print();
+						} else if (cod == 2) {
+							System.out.println();
+							removedObject = list.removeNoFim();
+							System.out.printf("%s removido\n", removedObject);
+							list.print();
 						}
-					} while (cod < 0 || cod > 2);
-
-					if (cod == 1) {
-						System.out.println();
-						removedObject = list.removeNoInicio();
-						System.out.printf("%s removido\n", removedObject);
-						list.print();
-					} else if (cod == 2) {
-						System.out.println();
-						removedObject = list.removeNoFim();
-						System.out.printf("%s removido\n", removedObject);
-						list.print();
 					}
-				}
-			} while (cod != 0);
-
+				} while (cod != 0);
+			}
 		} // fim do try
 		catch (EmptyListException e) {
 			e.printStackTrace();
@@ -102,11 +103,14 @@ public class Principal {
 		// remove os objetos da fila
 		try {
 			Object removedObject;
-			while (!queue.imprimeTamanho().equals("Tamanho da Lista: 0")) {
-				removedObject = queue.desenfileira();// utiliza método dequeue
-				System.out.printf("%s saiu da Fila, próximo poderá ser atendido\n", removedObject);
-				queue.print();
-			} // fim do while
+			if (!queue.estaVazia()) {
+				System.out.println("\n--Remoção--");
+				while (!queue.imprimeTamanho().equals("Tamanho da Lista: 0")) {
+					removedObject = queue.desenfileira();// utiliza método dequeue
+					System.out.printf("%s saiu da Fila, próximo poderá ser atendido\n", removedObject);
+					queue.print();
+				} // fim do while
+			}
 		} // fim de try
 		catch (EmptyListException e) {
 			e.printStackTrace();// imprime a pilha de erros
@@ -116,11 +120,19 @@ public class Principal {
 		System.out.println("--Inserção--");
 
 		do {
-			System.out.println("Deseja Inserir?\n0 - Não/Pular\n1 - Sim");
+			do {
+				System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Sim");
+				cod = entrada.nextInt();
+				if (cod < 0 || cod > 2) {
+					System.out.println("\nCódigo inválido.");
+				}
+			} while (cod < 0 || cod > 2);
 			if (cod == 1) {
 				System.out.println("Qual elemento deseja inserir? ");
 				elem = entrada.next();
 				stack.empilha(elem);
+				stack.print();
+			} else if (cod == 0 && stack.estaVazia() == false) {
 				stack.print();
 			}
 		} while (cod == 1);
@@ -129,6 +141,7 @@ public class Principal {
 		// remove itens da pilha
 		try {
 			Object removedObject = null;
+			System.out.println("\n--Remoção--");
 			while (!stack.imprimeTamanho().equals("Tamanho da Lista: 0")) {
 				removedObject = stack.desempilha();// utiliza o método pop
 				System.out.printf("%s removido da pilha\n", removedObject);
