@@ -7,22 +7,14 @@ import java.io.IOException;
 
 public class Leia {
 
-	// Versão instável de merda
+	private static String[] professores;
 
-	private String[] professores;
-
-	public static void main(String[] args) {
-
-		Leia obj = new Leia();
-		obj.run();
-	}
-
-	public void run() {
+	public static String[] profs() {
 
 		String arquivoCSV = "./arq/Professores.csv";
 		BufferedReader br = null;
 		String linha = "";
-		String csvDivisor = ",";
+		String csvDivisor = "/";
 		setProfessores(null);
 
 		try {
@@ -31,6 +23,7 @@ public class Leia {
 			while ((linha = br.readLine()) != null) {
 
 				setProfessores(linha.split(csvDivisor));
+				return getProfessores();
 
 			}
 
@@ -56,13 +49,14 @@ public class Leia {
 				}
 			}
 		}
+		return null;
 	}
 
-	public String[] getProfessores() {
+	public static String[] getProfessores() {
 		return professores;
 	}
 
-	public void setProfessores(String[] professores) {
-		this.professores = professores;
+	public static void setProfessores(String[] professores) {
+		Leia.professores = professores;
 	}
 }
