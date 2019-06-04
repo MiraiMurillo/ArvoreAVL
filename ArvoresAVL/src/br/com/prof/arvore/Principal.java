@@ -23,8 +23,13 @@ public class Principal {
 		System.out.println("\n--Inserção--");
 
 		do {
-			System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Inicio\n2 - Fim");
-			cod = entrada.nextInt();
+			do {
+				System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Inicio\n2 - Fim");
+				cod = entrada.nextInt();
+				if (cod < 0 || cod > 2) {
+					System.out.println("\nCódigo inválido.");
+				}
+			} while (cod < 0 || cod > 2);
 			if (cod == 1) {
 				System.out.println("\nQual elemento deseja inserir? ");
 				elem = entrada.next();
@@ -36,8 +41,7 @@ public class Principal {
 				list.insereNoFim(elem);
 				list.print();
 			}
-			System.out.println("Deseja Inserir Mais Itens?\n1 - Sim\n2 - Não");
-		} while (cod == 1);
+		} while (cod != 0);
 
 		// remove objetos da lista; imprime depois de cada remoção
 		try {
@@ -46,8 +50,16 @@ public class Principal {
 			do {
 				if (list.estaVazia()) {
 					System.out.println("A Lista Está Vazia.");
+					cod = 0;
 				} else if (!list.estaVazia()) {
-					System.out.println("\nDeseja Remover?\n0 - Não/Pular\n1 - Inicio\n2 - Fim");
+					do {
+						System.out.println("\nDeseja Remover?\n0 - Não/Pular\n1 - No Inicio\n2 - No Fim");
+						cod = entrada.nextInt();
+						if (cod < 0 || cod > 2) {
+							System.out.println("\nCódigo inválido.");
+						}
+					} while (cod < 0 || cod > 2);
+
 					if (cod == 1) {
 						System.out.println();
 						removedObject = list.removeNoInicio();
@@ -59,9 +71,8 @@ public class Principal {
 						System.out.printf("%s removido\n", removedObject);
 						list.print();
 					}
-					System.out.println("Deseja Inserir Mais Itens?\n1 - Sim\n2 - Não");
 				}
-			} while (cod == 1);
+			} while (cod != 0);
 
 		} // fim do try
 		catch (EmptyListException e) {
@@ -73,19 +84,21 @@ public class Principal {
 		System.out.println("--Inserção--");
 		// utiliza o método enqueue
 		do {
-			System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Sim");
-			cod = entrada.nextInt();
+			do {
+				System.out.println("\nDeseja Inserir?\n0 - Não/Pular\n1 - Sim");
+				cod = entrada.nextInt();
+				if (cod < 0 || cod > 2) {
+					System.out.println("\nCódigo inválido.");
+				}
+			} while (cod < 0 || cod > 2);
+			if (cod == 1) {
+				System.out.println("Qual elemento deseja Inserir?");
+				elem = entrada.next();
+				queue.enfileira(elem);
+				queue.print();
+			}
 		} while (cod == 1);
-		queue.enfileira(-1);
-		queue.print();
-		queue.enfileira(0);
-		queue.print();
-		queue.enfileira(1);
-		queue.print();
-		queue.enfileira(5);
-		queue.print();
-		queue.enfileira(7);
-		queue.print();
+
 		// remove os objetos da fila
 		try {
 			Object removedObject;
@@ -99,15 +112,20 @@ public class Principal {
 			e.printStackTrace();// imprime a pilha de erros
 		} // fim do catch
 
+		System.out.println("--Pilha--");
+		System.out.println("--Inserção--");
+
+		do {
+			System.out.println("Deseja Inserir?\n0 - Não/Pular\n1 - Sim");
+			if (cod == 1) {
+				System.out.println("Qual elemento deseja inserir? ");
+				elem = entrada.next();
+				stack.empilha(elem);
+				stack.print();
+			}
+		} while (cod == 1);
 		// utliza método push
-		stack.empilha(-1);
-		stack.print();
-		stack.empilha(0);
-		stack.print();
-		stack.empilha(1);
-		stack.print();
-		stack.empilha(5);
-		stack.print();
+
 		// remove itens da pilha
 		try {
 			Object removedObject = null;
@@ -121,5 +139,4 @@ public class Principal {
 			e.printStackTrace();
 		} // fim do catch
 	}
-
 }
