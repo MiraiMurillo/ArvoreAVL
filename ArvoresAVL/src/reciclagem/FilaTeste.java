@@ -1,4 +1,7 @@
-package br.com.prof.arvore;
+package reciclagem;
+
+import br.com.prof.arvore.EmptyListException;
+import br.com.prof.arvore.Fila;
 
 public class FilaTeste {
 	public static void main(String[] args) {
