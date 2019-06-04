@@ -5,20 +5,19 @@ import java.util.Scanner;
 public class Principal {
 
 	private static Scanner entrada;
+	private static int cod;
+	private static String elem;
 
 	public static void main(String[] args) {
 
 		entrada = new Scanner(System.in);
 
-		Lista list = new Lista();
-		Pilha stack = new Pilha();
-		Fila queue = new Fila();
-
-		int cod;
-		String elem;
-
-		// insere na lista
 		do {
+			Lista list = new Lista();
+			Pilha stack = new Pilha();
+			Fila queue = new Fila();
+
+			// insere na lista
 			System.out.println("--Lista--");
 			System.out.println("--Inserção--");
 
