@@ -12,7 +12,7 @@ public class Leia {
 			
 			BufferedReader br = null;
 			String linha = "";
-			String csvDivisor = "/";
+			String csvDivisor = "  ";
 			setProfessores(null);
 
 				try {

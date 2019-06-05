@@ -5,10 +5,6 @@ public class Principal {
 	
 	public static void main(String[] args) {
 
-	
-			Leia ler = new Leia();
-			
-			Saida saida = new Saida();
 		
 			String [] leitura = Leia.profs("./arq/professores.csv");
 			
