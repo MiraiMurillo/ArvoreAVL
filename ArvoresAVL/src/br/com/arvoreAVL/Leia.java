@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Leia {
-
+	
+	//funcionando
+	
 	public static String[] profs(String arquivoCSV) {
 
 		String[] professores = null;
