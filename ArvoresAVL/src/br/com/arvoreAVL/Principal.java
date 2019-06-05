@@ -2,13 +2,27 @@ package br.com.arvoreAVL;
 
 public class Principal {
 
+	
 	public static void main(String[] args) {
 
-		String[] obj;
-		obj = Leia.profs();
+	
+			Leia ler = new Leia();
+			
+			Saida saida = new Saida();
 		
-		for(String i : obj) {
-			System.out.println(i);
+			String [] leitura = Leia.profs("./arq/professores.csv");
+			
+			
+			//testando vetor
+			for (int i = 0; i < leitura.length; i++) {
+				
+				System.out.println(leitura[i]);
+			}
+		
+			//testando saida
+			Saida.metodoPorScan(leitura);
+		
+		
+		
 		}
 	}
-}
