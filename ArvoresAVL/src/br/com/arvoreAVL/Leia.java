@@ -1,61 +1,42 @@
 package br.com.arvoreAVL;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class Leia {
 
-	private static String[] professores;
-
 	public static String[] profs(String arquivoCSV) {
 
-		BufferedReader br = null;
-		String linha = "";
-		String csvDivisor = "  ";
-		setProfessores(null);
-
+		String[] professores = null;
+		
 		try {
 
-			br = new BufferedReader(new FileReader(arquivoCSV));
-			while ((linha = br.readLine()) != null) {
+			FileReader arquivo = new FileReader(arquivoCSV);
 
-				setProfessores(linha.split(csvDivisor));
-				return getProfessores();
+			BufferedReader leitorLinhas = new BufferedReader(arquivo);
 
+			String linha = "";
+
+			linha = leitorLinhas.readLine();
+
+			 professores = new String[100];
+
+			int i = 0;
+
+			while (linha != null) {
+
+				professores[i] = linha;
+
+				linha = leitorLinhas.readLine();
+
+				i++;
 			}
+			arquivo.close();
 
-		} catch (FileNotFoundException e) {
-
-			e.printStackTrace();
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-		} finally {
-
-			if (br != null) {
-
-				try {
-
-					br.close();
-
-				} catch (IOException e) {
-
-					e.printStackTrace();
-				}
-			}
+		} catch (IOException erro) {
+			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
-		return null;
-	}
-
-	public static String[] getProfessores() {
 		return professores;
-	}
-
-	public static void setProfessores(String[] professores) {
-		Leia.professores = professores;
 	}
 }
