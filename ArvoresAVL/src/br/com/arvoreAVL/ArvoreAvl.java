@@ -11,6 +11,7 @@ public class ArvoreAvl {
 		inserirAVL(this.raiz, n);
 	}
 
+		//Inserção
 	public void inserirAVL(No aComparar, No aInserir) {
 
 		if (aComparar == null) {
@@ -79,7 +80,8 @@ public class ArvoreAvl {
 	public void remover(int k) {
 		removerAVL(this.raiz, k);
 	}
-
+	
+	//remover
 	public void removerAVL(No atual, int k) {
 		if (atual == null) {
 			return;
@@ -98,6 +100,7 @@ public class ArvoreAvl {
 		}
 	}
 
+	//remover
 	public void removerNoEncontrado(No aRemover) {
 		No r;
 
