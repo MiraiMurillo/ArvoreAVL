@@ -24,7 +24,7 @@ public class Principal {
 		// testando filas
 		FilaTeste.filas(getLeituras());
 
-		for (int i = 0; i < leitura.length; i++) {
+		for (int i = 0; i < leitura.length - 1; i++) {
 			setArv(arv.raiz, comparadorDeStrings(leitura[i], leitura[i + 1]));
 		}
 
