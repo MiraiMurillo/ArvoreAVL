@@ -6,38 +6,30 @@ import reciclagem.PilhaTeste;
 
 public class Principal {
 
-	private static String[] leituras;
+	private static String[] leitura;
 
 	public static void main(String[] args) {
 
 		setLeituras(Leia.profs("./arq/professores.csv"));
 
-		// testando vetor
-		// for (int i = 0; i < leitura.length; i++) {
-
-		// System.out.println(leitura[i]);
-		// }
-
 		// testando lista
-		// ListaTeste.listas(leitura);
+		ListaTeste.listas(leitura);
 
 		// testando saida
 		// Saida.metodoPorScan(leitura);
 
-		// PilhaTeste.PT(leitura);
-			
+		PilhaTeste.PT(leitura);
+
 		// testando filas
-		//FilaTeste.filas(getLeituras());
-		
-		
-		
+		FilaTeste.filas(getLeituras());
+
 	}
 
 	public static String[] getLeituras() {
-		return leituras;
+		return leitura;
 	}
 
 	public static void setLeituras(String[] leituras) {
-		Principal.leituras = leituras;
+		Principal.leitura = leituras;
 	}
 }
