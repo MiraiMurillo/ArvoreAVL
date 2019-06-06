@@ -4,21 +4,19 @@ import br.com.prof.arvore.EmptyListException;
 import br.com.prof.arvore.Lista;
 
 public class ListaTeste {
-	public static void main(String[] args) {
+	
+	public static void listas (String[] leitura) {
 
 		Lista list = new Lista(); // cria o contêiner de List
-
-		// insere inteiros na lista
-		list.insereNoInicio(-1);
-		list.print();
-		list.insereNoInicio(0);
-		list.print();
-		list.insereNoFim(1);
-		list.print();
-		list.insereNoFim(5);
-		list.print();
-		list.insereNoInicio(3);
-		list.print();
+		
+		String [] Leitura = leitura;
+		
+			
+		for (int i = 0; i < Leitura.length; i++) {
+				
+			list.insereNoInicio(Leitura[i]);
+			
+		}
 
 		// remove objetos da lista; imprime depois de cada remoção
 		try {
@@ -37,10 +35,18 @@ public class ListaTeste {
 			removedObject = list.removeNoFim();
 			System.out.printf("%s removido\n", removedObject);
 			list.print();
+			
+			
 		} // fim do try
 		catch (EmptyListException e) {
 			e.printStackTrace();
 		} // fim do catch
-
+		
 	}// fim de main
 }// fim da classe ListTest
+
+
+
+
+
+

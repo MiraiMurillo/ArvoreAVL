@@ -22,7 +22,7 @@ public class Leia {
 
 			linha = leitorLinhas.readLine();
 
-			 professores = new String[100];
+			professores = new String[100];
 
 			int i = 0;
 
