@@ -2,25 +2,25 @@ package br.com.prof.arvore;
 
 //definicao da classe List
 public class Lista {
-	private ListaNo primeiroNo;// Declara variavel de instancia com o nome de
-								// PrimeiroNó
-	private ListaNo ultimoNo;// Declara variavel de instancia com o nome de
-								// UltimoNó
+	private static ListaNo primeiroNo;// Declara variavel de instancia com o nome de
+	// PrimeiroNó
+	private static ListaNo ultimoNo;// Declara variavel de instancia com o nome de
+	// UltimoNó
 	private String nome; // String como 'lista' usada na impressao
 
-	private int tamanhoLista;
+	private static int tamanhoLista;
 
 	// construtor cria List vazia com 'list' como o nome
 	public Lista() {
 		this("Lista");
-		this.tamanhoLista = 0;
+		Lista.tamanhoLista = 0;
 	}// fim do construtor sem argumentos List
 
 	// construtor cria uma List vazia com um nome
 	public Lista(String nomeDaLista) {
 		nome = nomeDaLista;
 		primeiroNo = ultimoNo = null;
-		this.tamanhoLista = 0;
+		Lista.tamanhoLista = 0;
 	}// fim do construtor de um argumento List
 		// Insere Object na frente de List
 
@@ -31,17 +31,17 @@ public class Lista {
 			primeiroNo = new ListaNo(insertItem, primeiroNo);
 		} // fim do método insereNoInicio
 
-		this.tamanhoLista++;
+		Lista.tamanhoLista++;
 	}// fim do método insereNoInicio
 
 	// insere Object no fim de Lista
-	public void insereNoFim(Object insertItem) {
+	public static void insereNoFim(Object insertItem) {
 		if (estaVazia()) {
 			primeiroNo = ultimoNo = new ListaNo(insertItem);
 		} else {
 			ultimoNo = ultimoNo.proximoNo = new ListaNo(insertItem);
 		}
-		this.tamanhoLista++;
+		tamanhoLista++;
 	}// fim do método insereNoFim
 
 	// Insere na posição informada
@@ -64,7 +64,7 @@ public class Lista {
 		} else {
 			primeiroNo = primeiroNo.proximoNo;
 		}
-		this.tamanhoLista--;
+		Lista.tamanhoLista--;
 		return removedItem;// retorna dados de nó removidas
 	}// fim do método removeNoFim
 
@@ -93,7 +93,7 @@ public class Lista {
 			current.proximoNo = null;
 		} // fim do else
 
-		this.tamanhoLista--;
+		Lista.tamanhoLista--;
 		return removedItem; // retorna dados de nó removidos
 	}// fim do método removeNoFim
 
@@ -111,7 +111,7 @@ public class Lista {
 	 */
 
 	// Determina se a lista estiver vazia
-	public boolean estaVazia() {
+	public static boolean estaVazia() {
 		return primeiroNo == null; // retorna true se List estiver vazia
 	}// fim do método estaVazia
 		// gera saída do conteúdo de List
@@ -123,12 +123,12 @@ public class Lista {
 			return;
 		} // fim do if
 
-		System.out.printf("A lista %s é: ", nome);
+		System.out.printf("\nA lista %s é: ", nome);
 		ListaNo current = primeiroNo;
 		// enquanto não estiver no fim da lista, gera saída dos dados do nó
 		// atual
 		while (current != null) {
-			System.out.printf("%s -> ", current.data);
+			System.out.printf("\n%s -> ", current.data);
 			current = current.proximoNo;
 		} // fim do While
 		System.out.printf("\n");
@@ -136,6 +136,6 @@ public class Lista {
 	} // fim do método print
 
 	public String imprimeTamanho() {
-		return "Tamanho da Lista: " + this.tamanhoLista;
+		return "Tamanho da Lista: " + Lista.tamanhoLista;
 	}
 }// fim da classe List

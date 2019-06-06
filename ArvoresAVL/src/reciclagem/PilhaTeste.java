@@ -4,16 +4,17 @@ import br.com.prof.arvore.EmptyListException;
 import br.com.prof.arvore.Pilha;
 
 public class PilhaTeste {
-	public static void main(String[] args) {
-		Pilha stack = new Pilha();
+
+	static Pilha stack = new Pilha();
+
+	public static void PT(String[] leitura) {
+
 		// utliza método push
-		stack.empilha(-1);
-		stack.print();
-		stack.empilha(0);
-		stack.print();
-		stack.empilha(1);
-		stack.print();
-		stack.empilha(5);
+
+		for (int i = 0; i < leitura.length; i++) {
+			stack.empilha(leitura[i]);
+		}
+
 		stack.print();
 		// remove itens da pilha
 		try {
@@ -28,4 +29,9 @@ public class PilhaTeste {
 			e.printStackTrace();
 		} // fim do catch
 	}// fim do main
+
+	public static void empilha(String[] leitura) {
+		// TODO Auto-generated method stub
+
+	}
 }// fim da classe StackInheritanceTest
