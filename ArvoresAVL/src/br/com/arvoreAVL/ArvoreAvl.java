@@ -11,7 +11,7 @@ public class ArvoreAvl {
 		inserirAVL(this.raiz, n);
 	}
 
-		//Inserção
+		//Inserção 
 	public void inserirAVL(No aComparar, No aInserir) {
 
 		if (aComparar == null) {
