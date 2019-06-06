@@ -5,9 +5,11 @@ import reciclagem.PilhaTeste;
 
 public class Principal {
 
+	private static String[] leituras;
+
 	public static void main(String[] args) {
 
-		String[] leitura = Leia.profs("./arq/professores.csv");
+		setLeituras(Leia.profs("./arq/professores.csv"));
 
 		// testando vetor
 		// for (int i = 0; i < leitura.length; i++) {
@@ -16,12 +18,20 @@ public class Principal {
 		// }
 
 		// testando lista
-		//ListaTeste.listas(leitura);
+		// ListaTeste.listas(leitura);
 
 		// testando saida
 		// Saida.metodoPorScan(leitura);
 
-		//PilhaTeste.PT(leitura);
+		// PilhaTeste.PT(leitura);
 
+	}
+
+	public static String[] getLeituras() {
+		return leituras;
+	}
+
+	public static void setLeituras(String[] leituras) {
+		Principal.leituras = leituras;
 	}
 }
