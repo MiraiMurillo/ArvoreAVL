@@ -4,19 +4,17 @@ import br.com.prof.arvore.EmptyListException;
 import br.com.prof.arvore.Fila;
 
 public class FilaTeste {
-	public static void main(String[] args) {
+	public static void filas(String[] leitura) {
 		Fila queue = new Fila();
+		
 		// utiliza o método enqueue
-		queue.enfileira(-1);
-		queue.print();
-		queue.enfileira(0);
-		queue.print();
-		queue.enfileira(1);
-		queue.print();
-		queue.enfileira(5);
-		queue.print();
-		queue.enfileira(7);
-		queue.print();
+		
+		for (int i = 0; i < leitura.length; i++) {
+			
+			queue.enfileira(leitura[i]);
+		}
+	
+		
 		// remove os objetos da fila
 		try {
 			Object removedObject;
@@ -28,6 +26,7 @@ public class FilaTeste {
 		} // fim de try
 		catch (EmptyListException e) {
 			e.printStackTrace();// imprime a pilha de erros
-		} // fim do catch
+		} 
+		// fim do catch
 	}// fim de main
 }// fim da classe QueueTest

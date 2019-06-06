@@ -1,5 +1,6 @@
 package br.com.arvoreAVL;
 
+import reciclagem.FilaTeste;
 import reciclagem.ListaTeste;
 import reciclagem.PilhaTeste;
 
@@ -24,7 +25,12 @@ public class Principal {
 		// Saida.metodoPorScan(leitura);
 
 		// PilhaTeste.PT(leitura);
-
+			
+		// testando filas
+		//FilaTeste.filas(getLeituras());
+		
+		
+		
 	}
 
 	public static String[] getLeituras() {
