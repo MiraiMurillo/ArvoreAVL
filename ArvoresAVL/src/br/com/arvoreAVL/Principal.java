@@ -7,6 +7,7 @@ import reciclagem.PilhaTeste;
 public class Principal {
 
 	private static String[] leitura;
+	private static ArvoreAvl arv = new ArvoreAvl();
 
 	public static void main(String[] args) {
 
@@ -23,6 +24,36 @@ public class Principal {
 		// testando filas
 		FilaTeste.filas(getLeituras());
 
+		for (int i = 0; i < leitura.length; i++) {
+			setArv(arv.raiz, comparadorDeStrings(leitura[i], leitura[i + 1]));
+		}
+
+	}
+
+	private static void setArv(No raiz, No comparadorDeStrings) {
+		
+	}
+
+	public static No comparadorDeStrings(String s1, String s2) {
+
+		System.out.println("\nComparando \"" + s1 + "\" a \"" + s2 + "\"...");
+
+		int comparisonResult = s1.compareTo(s2);
+
+		System.out.println("\nO resultado da Comparação foi: " + comparisonResult);
+		System.out.print("\nIsto significa que \"" + s1 + "\" ");
+
+		if (comparisonResult < 0) {
+			System.out.println("\nlexicograficamente vem antes de \"" + s2 + "\".");
+		} else if (comparisonResult > 0) {
+			System.out.println("\nlexicograficamente vem depois de \"" + s2 + "\".");
+		} else {
+			System.out.println("\né igual \"" + s2 + "\".");
+		}
+		System.out.println();
+
+		No oito = new No(comparisonResult);
+		return oito;
 	}
 
 	public static String[] getLeituras() {
@@ -31,5 +62,21 @@ public class Principal {
 
 	public static void setLeituras(String[] leituras) {
 		Principal.leitura = leituras;
+	}
+
+	public static String[] getLeitura() {
+		return leitura;
+	}
+
+	public static void setLeitura(String[] leitura) {
+		Principal.leitura = leitura;
+	}
+
+	public static ArvoreAvl getArv() {
+		return arv;
+	}
+
+	public static void setArv(ArvoreAvl arv) {
+		Principal.arv = arv;
 	}
 }

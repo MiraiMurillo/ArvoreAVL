@@ -14,6 +14,10 @@ public class No {
 		setChave(k);
 	}
 
+	public No() {
+		
+	}
+
 	public String toString() {
 		return Integer.toString(getChave());
 	}

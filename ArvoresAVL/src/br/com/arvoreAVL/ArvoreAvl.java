@@ -5,13 +5,27 @@ import java.util.ArrayList;
 public class ArvoreAvl {
 
 	protected No raiz;
+	private No nooito;
 
 	public void inserir(int k) {
 		No n = new No(k);
 		inserirAVL(this.raiz, n);
 	}
 
-		//Inserção 
+	public ArvoreAvl(No oi, No boi) {
+		inserirAVL(oi, boi);
+	}
+
+	public ArvoreAvl(Object oito, No dala) {
+		int i = (int) oito;
+		setNooito(new No(i));
+		inserirAVL(getNooito(), dala);
+	}
+
+	public ArvoreAvl() {
+
+	}
+
 	public void inserirAVL(No aComparar, No aInserir) {
 
 		if (aComparar == null) {
@@ -80,8 +94,7 @@ public class ArvoreAvl {
 	public void remover(int k) {
 		removerAVL(this.raiz, k);
 	}
-	
-	//remover
+
 	public void removerAVL(No atual, int k) {
 		if (atual == null) {
 			return;
@@ -100,7 +113,6 @@ public class ArvoreAvl {
 		}
 	}
 
-	//remover
 	public void removerNoEncontrado(No aRemover) {
 		No r;
 
@@ -266,4 +278,13 @@ public class ArvoreAvl {
 		lista.add(no);
 		inorder(no.getDireita(), lista);
 	}
+
+	public No getNooito() {
+		return nooito;
+	}
+
+	public void setNooito(No nooito) {
+		this.nooito = nooito;
+	}
+
 }
