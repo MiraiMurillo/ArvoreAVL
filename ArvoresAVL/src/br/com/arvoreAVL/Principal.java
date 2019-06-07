@@ -44,11 +44,11 @@ public class Principal {
 		System.out.print("\nIsto significa que \"" + s1 + "\" ");
 
 		if (comparisonResult < 0) {
-			System.out.println("\nlexicograficamente vem antes de \"" + s2 + "\".");
+			System.out.println("\nLexicograficamente vem antes de \"" + s2 + "\".");
 		} else if (comparisonResult > 0) {
-			System.out.println("\nlexicograficamente vem depois de \"" + s2 + "\".");
+			System.out.println("\nLexicograficamente vem depois de \"" + s2 + "\".");
 		} else {
-			System.out.println("\né igual \"" + s2 + "\".");
+			System.out.println("\nÉ igual \"" + s2 + "\".");
 		}
 		System.out.println();
 
