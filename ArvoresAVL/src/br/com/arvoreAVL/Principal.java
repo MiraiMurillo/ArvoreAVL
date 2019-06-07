@@ -31,7 +31,7 @@ public class Principal {
 	}
 
 	private static void setArv(No raiz, No comparadorDeStrings) {
-		
+
 	}
 
 	public static No comparadorDeStrings(String s1, String s2) {
