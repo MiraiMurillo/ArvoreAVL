@@ -128,7 +128,7 @@ public class Lista {
 		// enquanto não estiver no fim da lista, gera saída dos dados do nó
 		// atual
 		while (current != null) {
-			System.out.printf("\n%s -> ", current.data);
+			System.out.printf("%s -> ", current.data);
 			current = current.proximoNo;
 		} // fim do While
 		System.out.printf("\n");
