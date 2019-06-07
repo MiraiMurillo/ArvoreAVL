@@ -15,7 +15,7 @@ public class No {
 	}
 
 	public No() {
-		
+
 	}
 
 	public String toString() {

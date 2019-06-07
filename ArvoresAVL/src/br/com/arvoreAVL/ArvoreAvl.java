@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class ArvoreAvl {
 
 	protected No raiz;
-	private No nooito;
 
 	public void inserir(int k) {
 		No n = new No(k);
@@ -16,20 +15,14 @@ public class ArvoreAvl {
 		inserirAVL(oi, boi);
 	}
 
-	public ArvoreAvl(Object oito, No dala) {
-		int i = (int) oito;
-		setNooito(new No(i));
-		inserirAVL(getNooito(), dala);
-	}
-
 	public ArvoreAvl() {
-
+		setRaiz(null);
 	}
 
 	public void inserirAVL(No aComparar, No aInserir) {
 
 		if (aComparar == null) {
-			this.raiz = aInserir;
+			setRaiz(aInserir);
 
 		} else {
 
@@ -279,12 +272,12 @@ public class ArvoreAvl {
 		inorder(no.getDireita(), lista);
 	}
 
-	public No getNooito() {
-		return nooito;
+	public No getRaiz() {
+		return raiz;
 	}
 
-	public void setNooito(No nooito) {
-		this.nooito = nooito;
+	public void setRaiz(No raiz) {
+		this.raiz = raiz;
 	}
 
 }

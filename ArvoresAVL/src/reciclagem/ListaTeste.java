@@ -21,7 +21,7 @@ public class ListaTeste {
 		try {
 			Object removedObject = list.removeNoInicio();
 
-			while (Leitura.length > 1) {
+			while (Leitura.length > 2) {
 				removedObject = list.removeNoFim();
 				System.out.printf("\n%s removido\n", removedObject);
 				list.print();

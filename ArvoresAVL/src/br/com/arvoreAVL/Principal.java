@@ -11,57 +11,25 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		setLeituras(Leia.profs("./arq/professores.csv"));
+		setLeitura(Leia.profs("./arq/professores.csv"));
 
 		// testando lista
-		ListaTeste.listas(leitura);
+		ListaTeste.listas(getLeitura());
 
 		// testando saida
 		// Saida.metodoPorScan(leitura);
 
-		PilhaTeste.PT(leitura);
+		PilhaTeste.PT(getLeitura());
 
 		// testando filas
-		FilaTeste.filas(getLeituras());
+		FilaTeste.filas(getLeitura());
 
 		for (int i = 0; i < leitura.length - 1; i++) {
-			setArv(arv.raiz, comparadorDeStrings(leitura[i], leitura[i + 1]));
+			arv.inserir(ComparadorDeStrings.comparadorDeStrings(leitura[i], leitura[i + 1]));
 		}
-
-	}
-
-	private static void setArv(No raiz, No comparadorDeStrings) {
-
-	}
-
-	public static No comparadorDeStrings(String s1, String s2) {
-
-		System.out.println("\nComparando \"" + s1 + "\" a \"" + s2 + "\"...");
-
-		int comparisonResult = s1.compareTo(s2);
-
-		System.out.println("\nO resultado da ComparaÁ„o foi: " + comparisonResult);
-		System.out.print("\nIsto significa que \"" + s1 + "\" ");
-
-		if (comparisonResult < 0) {
-			System.out.println("\nLexicograficamente vem antes de \"" + s2 + "\".");
-		} else if (comparisonResult > 0) {
-			System.out.println("\nLexicograficamente vem depois de \"" + s2 + "\".");
-		} else {
-			System.out.println("\n… igual \"" + s2 + "\".");
+		for (No i : arv.inorder()) {
+			System.out.println(i);
 		}
-		System.out.println();
-
-		No oito = new No(comparisonResult);
-		return oito;
-	}
-
-	public static String[] getLeituras() {
-		return leitura;
-	}
-
-	public static void setLeituras(String[] leituras) {
-		Principal.leitura = leituras;
 	}
 
 	public static String[] getLeitura() {
