@@ -51,7 +51,7 @@ public class ArvoreAvl {
 			}
 		}
 	}
-
+//murilo
 	public void inserirAVL2(No aComparar, No aInserir) {
 
 		if (getRaiz2() == null) {
