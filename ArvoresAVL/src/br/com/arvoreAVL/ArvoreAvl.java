@@ -8,11 +8,7 @@ public class ArvoreAvl {
 
 	public void inserir(int k) {
 		No n = new No(k);
-		inserirAVL(this.raiz, n);
-	}
-
-	public ArvoreAvl(No oi, No boi) {
-		inserirAVL(oi, boi);
+		inserirAVL(getRaiz(), n);
 	}
 
 	public ArvoreAvl() {
