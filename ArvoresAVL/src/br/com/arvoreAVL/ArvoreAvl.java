@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ArvoreAvl {
 
 	protected No raiz;
-	private No st;
+	protected String raiz2;
 	private No n;
 
 	/*
@@ -13,12 +13,8 @@ public class ArvoreAvl {
 	 */
 
 	public void inserir2(String k2) {
-		setSt(new No(k2));
-		inserirAVL(getRaiz(), getSt());
-	}
-
-	public ArvoreAvl() {
-		setRaiz(null);
+		setN(new No(k2));
+		inserirAVL2(getRaiz(), getN());
 	}
 
 	public void inserirAVL(No aComparar, No aInserir) {
@@ -58,35 +54,21 @@ public class ArvoreAvl {
 
 	public void inserirAVL2(No aComparar, No aInserir) {
 
-		if (aComparar == null) {
-			setRaiz(aInserir);
-
+		if (getRaiz2() == null) {
+			setRaiz2(aInserir.getChave2());
 		} else {
-
-			if (0 > aInserir.getChave2().compareTo(aComparar.getChave2())) {
-
-				if (aComparar.getEsquerda() == null) {
-					aComparar.setEsquerda(aInserir);
-					aInserir.setPai(aComparar);
+			if (0 < ComparadorDeStrings.comparadorDeStrings(getRaiz2(), aInserir.getChave2())) {
+				if (aComparar.getEsquerda2() == null) {
+					aComparar.setEsquerda2(aInserir.getChave2());
+					aInserir.setPai2(aComparar.getChave2());
 					verificarBalanceamento(aComparar);
-
-				} else {
-					inserirAVL2(aComparar.getEsquerda(), aInserir);
+				} else if (0 > ComparadorDeStrings.comparadorDeStrings(getRaiz2(), aInserir.getChave2())) {
+					if (aComparar.getDireita2() == null) {
+						aComparar.setDireita2(aInserir.getChave2());
+						aInserir.setPai2(aComparar.getChave2());
+						verificarBalanceamento(aComparar);
+					}
 				}
-
-			} else if (0 < aInserir.getChave2().compareTo(aComparar.getChave2())) {
-
-				if (aComparar.getDireita() == null) {
-					aComparar.setDireita(aInserir);
-					aInserir.setPai(aComparar);
-					verificarBalanceamento(aComparar);
-
-				} else {
-					inserirAVL2(aComparar.getDireita(), aInserir);
-				}
-
-			} else {
-				// O nó já existe
 			}
 		}
 	}
@@ -309,6 +291,21 @@ public class ArvoreAvl {
 		inorder(no.getDireita(), lista);
 	}
 
+	final protected ArrayList<No> inorder2() {
+		ArrayList<No> ret = new ArrayList<No>();
+		inorder2(getRaiz(), ret);
+		return ret;
+	}
+
+	final protected void inorder2(No no, ArrayList<No> lista) {
+		if (no == null) {
+			return;
+		}
+		inorder2(no, lista);
+		lista.add(no);
+		inorder2(no, lista);
+	}
+
 	public No getRaiz() {
 		return raiz;
 	}
@@ -317,20 +314,20 @@ public class ArvoreAvl {
 		this.raiz = raiz;
 	}
 
-	public No getSt() {
-		return st;
-	}
-
-	public void setSt(No st) {
-		this.st = st;
-	}
-
 	public No getN() {
 		return n;
 	}
 
 	public void setN(No n) {
 		this.n = n;
+	}
+
+	public String getRaiz2() {
+		return raiz2;
+	}
+
+	public void setRaiz2(String raiz2) {
+		this.raiz2 = raiz2;
 	}
 
 }

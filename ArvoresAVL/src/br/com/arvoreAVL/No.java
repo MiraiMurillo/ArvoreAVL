@@ -8,15 +8,14 @@ public class No {
 	private int chave;
 	private int balanceamento;
 	private String chave2;
+	private String esquerda2;
+	private String direita2;
+	private String pai2;
 
 	public No(int k) {
 		setEsquerda(setDireita(setPai(null)));
 		setBalanceamento(0);
 		setChave(k);
-	}
-
-	public No() {
-
 	}
 
 	public No(String k2) {
@@ -77,5 +76,29 @@ public class No {
 
 	public void setChave2(String chave2) {
 		this.chave2 = chave2;
+	}
+
+	public String getEsquerda2() {
+		return esquerda2;
+	}
+
+	public void setEsquerda2(String esquerda2) {
+		this.esquerda2 = esquerda2;
+	}
+
+	public String getDireita2() {
+		return direita2;
+	}
+
+	public void setDireita2(String direita2) {
+		this.direita2 = direita2;
+	}
+
+	public String getPai2() {
+		return pai2;
+	}
+
+	public void setPai2(String pai2) {
+		this.pai2 = pai2;
 	}
 }

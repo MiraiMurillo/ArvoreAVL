@@ -42,7 +42,9 @@ public class Principal {
 		arv.inserir2(entrada.nextLine());
 		arv.inserir2(entrada.nextLine());
 		
-		System.out.println(arv.inorder());
+		for(No i : arv.inorder2()) {
+			System.out.println(i);
+		}
 		
 		
 	}
