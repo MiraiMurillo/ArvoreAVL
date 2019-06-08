@@ -149,7 +149,7 @@ public class Principal {
 					System.out.printf("\n%s removido da pilha\n", removedObject);
 					stack.print();
 				} // fim do While
-			} // fim do trry
+			} // fim do try
 			catch (EmptyListException e) {
 				e.printStackTrace();
 			} // fim do catch
