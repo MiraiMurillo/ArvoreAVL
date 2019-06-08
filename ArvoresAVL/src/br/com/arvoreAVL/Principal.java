@@ -29,17 +29,15 @@ public class Principal {
 			System.out.println("\nInforme o número a ser adicionado na árvore: ");
 			cod = entrada.nextInt();
 			arv.inserir(cod);
-			arv.inorder();
 			System.out.println("\nDeseja adicionar mais algum número?\n1 - Sim\n2 - Não ");
 			cod = entrada.nextInt();
 		}
 
-		for (int i = 0; i < Leia.profs("./arq/professores.csv").length - 1; i++) {
-			// arv.inserir(Leia.profs("./arq/professores.csv"));
-		}
-		for (No i : arv.inorder()) {
-			System.out.println(i);
-		}
+		/*
+		 * for (int i = 0; i < Leia.profs("./arq/professores.csv").length - 1; i++) { //
+		 * arv.inserir(Leia.profs("./arq/professores.csv")); }
+		 */
+		System.out.println(arv.inorder());
 	}
 
 	public static ArvoreAvl getArv() {
