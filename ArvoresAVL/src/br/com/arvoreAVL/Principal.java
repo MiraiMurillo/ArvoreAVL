@@ -20,7 +20,7 @@ public class Principal {
 		// testando saida
 		// Saida.metodoPorScan(leitura);
 
-		PilhaTeste.listas("./arq/professores.csv");
+		PilhaTeste.pilhas("./arq/professores.csv");
 
 		// testando filas
 		FilaTeste.filas("./arq/professores.csv");

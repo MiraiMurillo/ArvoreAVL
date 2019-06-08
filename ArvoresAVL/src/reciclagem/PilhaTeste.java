@@ -12,7 +12,7 @@ public class PilhaTeste {
 	private static int i;
 	private static Pilha stack = new Pilha();
 
-	public static void listas(String Leitura) {
+	public static void pilhas(String Leitura) {
 
 		try {
 
