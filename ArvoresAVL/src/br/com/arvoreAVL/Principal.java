@@ -15,15 +15,15 @@ public class Principal {
 	public static void main(String[] args) {
 
 		// testando lista
-		ListaTeste.listas(Leia.profs("./arq/professores.csv"));
+		ListaTeste.listas("./arq/professores.csv");
 
 		// testando saida
 		// Saida.metodoPorScan(leitura);
 
-		PilhaTeste.PT(Leia.profs("./arq/professores.csv"));
+		//PilhaTeste.PT(Leia.profs("./arq/professores.csv"));
 
 		// testando filas
-		FilaTeste.filas(Leia.profs("./arq/professores.csv"));
+		//FilaTeste.filas(Leia.profs("./arq/professores.csv"));
 
 		for (; cod != 2;) {
 			System.out.println("\nInforme o número a ser adicionado na árvore: ");
