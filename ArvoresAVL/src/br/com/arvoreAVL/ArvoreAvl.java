@@ -5,10 +5,16 @@ import java.util.ArrayList;
 public class ArvoreAvl {
 
 	protected No raiz;
+	private No st;
+	private No n;
 
-	public void inserir(int k) {
-		No n = new No(k);
-		inserirAVL(getRaiz(), n);
+	/*
+	 * public void inserir(int k) { No n = new No(k); inserirAVL(getRaiz(), n); }
+	 */
+
+	public void inserir2(String k2) {
+		setSt(new No(k2));
+		inserirAVL(getRaiz(), getSt());
 	}
 
 	public ArvoreAvl() {
@@ -42,6 +48,41 @@ public class ArvoreAvl {
 
 				} else {
 					inserirAVL(aComparar.getDireita(), aInserir);
+				}
+
+			} else {
+				// O nó já existe
+			}
+		}
+	}
+
+	public void inserirAVL2(No aComparar, No aInserir) {
+
+		if (aComparar == null) {
+			setRaiz(aInserir);
+
+		} else {
+
+			if (0 > aInserir.getChave2().compareTo(aComparar.getChave2())) {
+
+				if (aComparar.getEsquerda() == null) {
+					aComparar.setEsquerda(aInserir);
+					aInserir.setPai(aComparar);
+					verificarBalanceamento(aComparar);
+
+				} else {
+					inserirAVL2(aComparar.getEsquerda(), aInserir);
+				}
+
+			} else if (0 < aInserir.getChave2().compareTo(aComparar.getChave2())) {
+
+				if (aComparar.getDireita() == null) {
+					aComparar.setDireita(aInserir);
+					aInserir.setPai(aComparar);
+					verificarBalanceamento(aComparar);
+
+				} else {
+					inserirAVL2(aComparar.getDireita(), aInserir);
 				}
 
 			} else {
@@ -274,6 +315,22 @@ public class ArvoreAvl {
 
 	public void setRaiz(No raiz) {
 		this.raiz = raiz;
+	}
+
+	public No getSt() {
+		return st;
+	}
+
+	public void setSt(No st) {
+		this.st = st;
+	}
+
+	public No getN() {
+		return n;
+	}
+
+	public void setN(No n) {
+		this.n = n;
 	}
 
 }

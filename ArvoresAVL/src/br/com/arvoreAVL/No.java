@@ -7,6 +7,7 @@ public class No {
 	private No pai;
 	private int chave;
 	private int balanceamento;
+	private String chave2;
 
 	public No(int k) {
 		setEsquerda(setDireita(setPai(null)));
@@ -16,6 +17,12 @@ public class No {
 
 	public No() {
 
+	}
+
+	public No(String k2) {
+		setEsquerda(setDireita(setPai(null)));
+		setBalanceamento(0);
+		setChave2(k2);
 	}
 
 	public String toString() {
@@ -62,5 +69,13 @@ public class No {
 
 	public void setEsquerda(No esquerda) {
 		this.esquerda = esquerda;
+	}
+
+	public String getChave2() {
+		return chave2;
+	}
+
+	public void setChave2(String chave2) {
+		this.chave2 = chave2;
 	}
 }
