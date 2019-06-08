@@ -1,19 +1,49 @@
 package reciclagem;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import br.com.prof.arvore.EmptyListException;
 import br.com.prof.arvore.Pilha;
 
 public class PilhaTeste {
 
-	static Pilha stack = new Pilha();
+	private static int i;
+	private static Pilha stack = new Pilha();
+
+	public static void listas(String Leitura) {
+
+		try {
+
+			FileReader arquivo = new FileReader(Leitura);
+
+			BufferedReader leitorLinhas = new BufferedReader(arquivo);
+
+			String linha = "";
+
+			linha = leitorLinhas.readLine();
+
+			setI(0);
+
+			while (linha != null) {
+
+				stack.empilha(linha);
+
+				linha = leitorLinhas.readLine();
+
+				setI(getI() + 1);
+
+				stack.print();
+			}
+			arquivo.close();
+
+		} catch (IOException erro) {
+			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
+		}
+	}
 
 	public static void PT(String[] leitura) {
-
-		// utliza método push
-
-		for (int i = 0; i < leitura.length; i++) {
-			stack.empilha(leitura[i]);
-		}
 
 		stack.print();
 		// remove itens da pilha
@@ -33,5 +63,21 @@ public class PilhaTeste {
 	public static void empilha(String[] leitura) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public static int getI() {
+		return i;
+	}
+
+	public static void setI(int i) {
+		PilhaTeste.i = i;
+	}
+
+	public static Pilha getStack() {
+		return stack;
+	}
+
+	public static void setStack(Pilha stack) {
+		PilhaTeste.stack = stack;
 	}
 }// fim da classe StackInheritanceTest

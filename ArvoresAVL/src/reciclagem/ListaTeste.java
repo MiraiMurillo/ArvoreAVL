@@ -8,6 +8,8 @@ import br.com.prof.arvore.Lista;
 
 public class ListaTeste {
 
+	private static int i;
+
 	public static void listas(String Leitura) {
 
 		Lista list = new Lista(); // cria o contêiner de List
@@ -22,7 +24,7 @@ public class ListaTeste {
 
 			linha = leitorLinhas.readLine();
 
-			int i = 0;
+			setI(0);
 
 			while (linha != null) {
 
@@ -30,31 +32,38 @@ public class ListaTeste {
 
 				linha = leitorLinhas.readLine();
 
-				i++;
+				setI(getI() + 1);
 
 				list.print();
 			}
-				arquivo.close();
+			arquivo.close();
 
 		} catch (IOException erro) {
 			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
-		
 
 		// remove objetos da lista; imprime depois de cada remoção
-		 try {
-		 Object removedObject = list.removeNoInicio();
+		try {
+			Object removedObject = list.removeNoInicio();
 
-		 while (Leitura.length() > 2) {
-		 removedObject = list.removeNoFim();
-		 System.out.printf("\n%s removido\n", removedObject);
-		 list.print();
-		 }
+			while (Leitura.length() > 2) {
+				removedObject = list.removeNoFim();
+				System.out.printf("\n%s removido\n", removedObject);
+				list.print();
+			}
 
-		 } // fim do try
-		 catch (EmptyListException e) {
-		 e.printStackTrace();
-		 } // fim do catch
+		} // fim do try
+		catch (EmptyListException e) {
+			e.printStackTrace();
+		} // fim do catch
 
 	}// fim de main
+
+	public static int getI() {
+		return i;
+	}
+
+	public static void setI(int i) {
+		ListaTeste.i = i;
+	}
 }// fim da classe ListTest

@@ -20,10 +20,10 @@ public class Principal {
 		// testando saida
 		// Saida.metodoPorScan(leitura);
 
-		//PilhaTeste.PT(Leia.profs("./arq/professores.csv"));
+		PilhaTeste.listas("./arq/professores.csv");
 
 		// testando filas
-		//FilaTeste.filas(Leia.profs("./arq/professores.csv"));
+		FilaTeste.filas("./arq/professores.csv");
 
 		for (; cod != 2;) {
 			System.out.println("\nInforme o número a ser adicionado na árvore: ");

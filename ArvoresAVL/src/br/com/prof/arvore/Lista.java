@@ -9,6 +9,8 @@ public class Lista {
 	private String nome; // String como 'lista' usada na impressao
 
 	private static int tamanhoLista;
+	private Object aux;
+	private ListaNo a;
 
 	// construtor cria List vazia com 'list' como o nome
 	public Lista() {
@@ -45,13 +47,15 @@ public class Lista {
 	}// fim do método insereNoFim
 
 	// Insere na posição informada
-	/*
-	 * public void insertAtPosicao(int posicao, Object elemento) {
-	 * 
-	 * 
-	 * }
-	 */
 
+	/*
+	 * public void insertAtPosicao(int posicao, Object elemento) throws Exception {
+	 * if (posicao >= getTamanhoLista()) { throw new Exception("Erro: Lista Cheia");
+	 * } setAux(new Object()); setAux(getUltimoNo()); setA(getUltimoNo());
+	 * for(getA(); getA() != posicao; a--) {
+	 * 
+	 * } }
+	 */
 	// remove o primeiro nó de List
 	public Object removeNoInicio() throws EmptyListException {
 		if (estaVazia()) {
@@ -137,5 +141,53 @@ public class Lista {
 
 	public String imprimeTamanho() {
 		return "Tamanho da Lista: " + Lista.tamanhoLista;
+	}
+
+	public static ListaNo getPrimeiroNo() {
+		return primeiroNo;
+	}
+
+	public static void setPrimeiroNo(ListaNo primeiroNo) {
+		Lista.primeiroNo = primeiroNo;
+	}
+
+	public static ListaNo getUltimoNo() {
+		return ultimoNo;
+	}
+
+	public static void setUltimoNo(ListaNo ultimoNo) {
+		Lista.ultimoNo = ultimoNo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public static int getTamanhoLista() {
+		return tamanhoLista;
+	}
+
+	public static void setTamanhoLista(int tamanhoLista) {
+		Lista.tamanhoLista = tamanhoLista;
+	}
+
+	public Object getAux() {
+		return aux;
+	}
+
+	public void setAux(Object aux) {
+		this.aux = aux;
+	}
+
+	public ListaNo getA() {
+		return a;
+	}
+
+	public void setA(ListaNo a) {
+		this.a = a;
 	}
 }// fim da classe List
