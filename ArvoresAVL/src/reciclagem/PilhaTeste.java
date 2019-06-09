@@ -75,4 +75,4 @@ public class PilhaTeste {
 	public static void setStack(Pilha stack) {
 		PilhaTeste.stack = stack;
 	}
-}// fim da classe StackInheritanceTest
+}// fim da classe StackInheritanceTest 

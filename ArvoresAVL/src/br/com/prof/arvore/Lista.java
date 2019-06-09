@@ -190,4 +190,4 @@ public class Lista {
 	public void setA(ListaNo a) {
 		this.a = a;
 	}
-}// fim da classe List
+}// fim da classe Lista
