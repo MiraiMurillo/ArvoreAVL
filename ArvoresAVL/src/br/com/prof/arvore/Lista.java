@@ -122,7 +122,7 @@ public class Lista {
 
 	public void print() {
 		if (estaVazia()) {
-			System.out.printf("Lista Vazia %s\n", nome);
+			System.out.printf("\nLista Vazia %s\n", nome);
 			System.out.println(imprimeTamanho());
 			return;
 		} // fim do if

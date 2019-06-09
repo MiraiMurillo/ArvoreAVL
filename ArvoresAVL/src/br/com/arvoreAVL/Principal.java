@@ -31,7 +31,7 @@ public class Principal {
 
 				ListaTeste.listas("./arq/professores.csv");
 			}
-			System.out.println("Deseja imprimir a saída da Lista?\n1 - sim\n0 - não");
+			System.out.println("\nDeseja imprimir a saída da Lista?\n1 - sim\n0 - não");
 			opcao = entrada.nextInt();
 
 			entrada.nextLine();
@@ -91,7 +91,7 @@ public class Principal {
 			entrada.nextLine();
 			if (opcao != 0) {
 				do {
-					System.out.println("Digite o nome a ser inserido: ");
+					System.out.println("\nDigite o nome a ser inserido: ");
 					nome = entrada.next();
 
 					arv.inserir(nome);
@@ -126,30 +126,30 @@ public class Principal {
 			opcao = entrada.nextInt();
 			entrada.nextLine();
 
-			if (opcao != 0) {
-				do {
-					System.out.println("\nDigite o elemento a ser buscado: ");
-					nome = entrada.nextLine();
+			/*
+			 * if (opcao != 0) { do {
+			 * System.out.println("\nDigite o elemento a ser buscado: "); nome =
+			 * entrada.nextLine();
+			 * 
+			 * //arv.buscar(nome);
+			 * 
+			 * System.out.println("\nDeseja buscar outro nome?\n1 - sim\n0 - não"); opcao =
+			 * entrada.nextInt();
+			 * 
+			 * entrada.nextLine(); } while (opcao != 0); }
+			 */
 
-					// arv.buscar(nome);
-
-					System.out.println("\nDeseja buscar outro nome?\n1 - sim\n0 - não");
-					opcao = entrada.nextInt();
-
-					entrada.nextLine();
-				} while (opcao != 0);
-			}
 			System.out.println("\nDeseja imprimir os elementos?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não");
 			opcao = entrada.nextInt();
 
 			entrada.nextLine();
 			if (opcao != 0) {
 				if (opcao == 1) {
-					System.out.println("Ordem");
+					System.out.println("--Ordem--");
 				} else if (opcao == 2) {
-					System.out.println("PreOrdem");
+					System.out.println("--PreOrdem--");
 				} else if (opcao == 3) {
-					System.out.println("PosOrdem");
+					System.out.println("--PosOrdem--");
 				}
 				for (No i : arv.inorder(opcao)) {
 					System.out.println(i);
@@ -174,7 +174,7 @@ public class Principal {
 			 * System.out.println("\nObrigado por utilizar o sistema ;D"); }
 			 */
 
-			System.out.println("Deseja reutilizar o programa?\n1 - Sim\n0 - Não");
+			System.out.println("\nDeseja reutilizar o programa?\n1 - Sim\n0 - Não");
 		} while (opcao != 0);
 	}
 
