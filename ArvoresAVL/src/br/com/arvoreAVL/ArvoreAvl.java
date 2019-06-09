@@ -4,6 +4,27 @@ import java.util.ArrayList;
 
 public class ArvoreAvl {
 
+	/*
+	 * public No buscar(String chave) {
+	 * 
+	 * if (this.raiz == null) return null; // se arvore vazia
+	 * 
+	 * No atual = this.raiz; // começa a procurar desde raiz
+	 * 
+	 * while (atual.item != chave) { // enquanto nao encontrou
+	 * 
+	 * if(chave.compareTo(atual.item) > 0) atual = atual.getEsquerda(); // caminha
+	 * para esquerda
+	 * 
+	 * else atual = atual.getDireita(); // caminha para direita
+	 * 
+	 * if (atual == null) return null; // encontrou uma folha -> sai
+	 * 
+	 * } // fim laço while
+	 * 
+	 * return atual; // terminou o laço while e chegou aqui é pq encontrou item }
+	 */
+
 	public No raiz;
 
 	public void inserir(String k) {

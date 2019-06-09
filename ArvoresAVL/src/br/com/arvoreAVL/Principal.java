@@ -13,6 +13,8 @@ public class Principal {
 
 	public static void main(String[] args) {
 
+		double finish = 0, start;
+
 		int opcao = 0;
 
 		String nome;
@@ -60,13 +62,18 @@ public class Principal {
 
 		if (opcao != 0) {
 
+			start = System.nanoTime(); // contador nano inicio
+
 			for (int i = 0; i < Leia.profs("./arq/professores.csv").length - 1; i++) {
 				arv.inserir(ler[i]);
 				System.out.println(arv.inorder());
 
+				finish = System.nanoTime(); // contador nano fim
 			}
 
 			System.out.println("\nNomes Professores adicionados a arvore: ");
+
+			System.out.println("\nContagem em Nanosegundos: " + (finish - start));
 
 		}
 
@@ -125,10 +132,10 @@ public class Principal {
 
 			do {
 
-				System.out.println("\nDigite o elemnto a ser buscado: ");
+				System.out.println("\nDigite o elemento a ser buscado: ");
 				nome = entrada.nextLine();
 
-				// Metodo Busca
+				// arv.buscar(nome);
 
 				System.out.println("\nDeseja buscar outro nome?\n1 - sim\n0 - não");
 				opcao = entrada.nextInt();

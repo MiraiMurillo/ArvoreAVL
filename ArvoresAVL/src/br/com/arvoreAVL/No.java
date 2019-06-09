@@ -10,6 +10,7 @@ public class No {
 	private String[] sai;
 	@SuppressWarnings("unused")
 	private String nome;
+	public String item;
 
 	public void LerArq(String nomeArquivo) {
 		nome = nomeArquivo;
