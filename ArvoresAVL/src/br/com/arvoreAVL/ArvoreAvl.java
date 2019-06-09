@@ -8,9 +8,10 @@ public class ArvoreAvl {
 	protected String raiz2;
 	private No n;
 
-	/*
-	 * public void inserir(int k) { No n = new No(k); inserirAVL(getRaiz(), n); }
-	 */
+	public void inserir(int k) {
+		No n = new No(k);
+		inserirAVL(getRaiz(), n);
+	}
 
 	public void inserir2(String k2) {
 		setN(new No(k2));
@@ -51,6 +52,7 @@ public class ArvoreAvl {
 			}
 		}
 	}
+
 //murilo
 	public void inserirAVL2(No aComparar, No aInserir) {
 
@@ -329,5 +331,4 @@ public class ArvoreAvl {
 	public void setRaiz2(String raiz2) {
 		this.raiz2 = raiz2;
 	}
-
 }

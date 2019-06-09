@@ -38,15 +38,14 @@ public class Principal {
 		 * arv.inserir(Leia.profs("./arq/professores.csv")); }
 		 *
 		 */
-		//murillo orelhudo
+		// murillo orelhudo
 		arv.inserir2(entrada.nextLine());
 		arv.inserir2(entrada.nextLine());
-		
-		for(No i : arv.inorder2()) {
+
+		for (No i : arv.inorder2()) {
 			System.out.println(i);
 		}
-		
-		
+
 	}
 
 	public static ArvoreAvl getArv() {
