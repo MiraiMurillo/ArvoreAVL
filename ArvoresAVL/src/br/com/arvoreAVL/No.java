@@ -1,38 +1,35 @@
 package br.com.arvoreAVL;
 
 public class No {
-//murilo
 	private No esquerda;
 	private No direita;
 	private No pai;
-	private int chave;
+	private String chave;
 	private int balanceamento;
-	private String chave2;
-	private String esquerda2;
-	private String direita2;
-	private String pai2;
+	@SuppressWarnings("unused")
+	private String[] sai;
+	@SuppressWarnings("unused")
+	private String nome;
 
-	public No(int k) {
+	public void LerArq(String nomeArquivo) {
+		nome = nomeArquivo;
+	}
+
+	public No(String k) {
 		setEsquerda(setDireita(setPai(null)));
 		setBalanceamento(0);
 		setChave(k);
 	}
 
-	public No(String k2) {
-		setEsquerda(setDireita(setPai(null)));
-		setBalanceamento(0);
-		setChave2(k2);
-	}
-
 	public String toString() {
-		return Integer.toString(getChave());
+		return getChave();
 	}
 
-	public int getChave() {
+	public String getChave() {
 		return chave;
 	}
 
-	public void setChave(int chave) {
+	public void setChave(String chave) {
 		this.chave = chave;
 	}
 
@@ -68,37 +65,5 @@ public class No {
 
 	public void setEsquerda(No esquerda) {
 		this.esquerda = esquerda;
-	}
-
-	public String getChave2() {
-		return chave2;
-	}
-
-	public void setChave2(String chave2) {
-		this.chave2 = chave2;
-	}
-
-	public String getEsquerda2() {
-		return esquerda2;
-	}
-
-	public void setEsquerda2(String esquerda2) {
-		this.esquerda2 = esquerda2;
-	}
-
-	public String getDireita2() {
-		return direita2;
-	}
-
-	public void setDireita2(String direita2) {
-		this.direita2 = direita2;
-	}
-
-	public String getPai2() {
-		return pai2;
-	}
-
-	public void setPai2(String pai2) {
-		this.pai2 = pai2;
 	}
 }

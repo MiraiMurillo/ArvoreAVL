@@ -10,42 +10,169 @@ public class Principal {
 
 	private static ArvoreAvl arv = new ArvoreAvl();
 	private static Scanner entrada = new Scanner(System.in);
-	static int cod = 0;
 
 	public static void main(String[] args) {
 
-		// testando lista
-		// ListaTeste.listas("./arq/professores.csv");
+		int opcao = 0;
 
-		// testando saida
-		// Saida.metodoPorScan(leitura);
+		String nome;
 
-		// PilhaTeste.pilhas("./arq/professores.csv");
+		Leia.profs("./arq/professores.csv");
 
-		// testando filas
-		// FilaTeste.filas("./arq/professores.csv");
+		String[] ler = Leia.profs("./arq/professores.csv");
 
-		/*
-		 * for (; cod != 2;) {
-		 * System.out.println("\nInforme o número a ser adicionado na árvore: "); cod =
-		 * entrada.nextInt(); arv.inserir(cod);
-		 * System.out.println("\nDeseja adicionar mais algum número?\n1 - Sim\n2 - Não "
-		 * ); cod = entrada.nextInt(); }
-		 */
+		System.out.println("Bem vindo ;D ");
 
-		/*
-		 * for (int i = 0; i < Leia.profs("./arq/professores.csv").length - 1; i++) { //
-		 * arv.inserir(Leia.profs("./arq/professores.csv")); }
-		 *
-		 */
-		// murillo orelhudo
-		arv.inserir2(entrada.nextLine());
-		arv.inserir2(entrada.nextLine());
+		System.out.println("\nDeseja imprimir a Lista? 1-sim, 0-não");
+		opcao = entrada.nextInt();
 
-		for (No i : arv.inorder2()) {
-			System.out.println(i);
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			ListaTeste.listas("./arq/professores.csv");
 		}
 
+		System.out.println("\nDeseja imprimir a Pilha? 1-sim, 0-não");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			PilhaTeste.pilhas("./arq/professores.csv");
+		}
+
+		System.out.println("\nDeseja imprimir a Fila? 1-sim, 0-não");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			FilaTeste.filas("./arq/professores.csv");
+		}
+
+		System.out.println("\nDeseja adicionar Nome Professores à Arvore? 1-sim, 0-não");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			for (int i = 0; i < Leia.profs("./arq/professores.csv").length - 1; i++) {
+				arv.inserir(ler[i]);
+				System.out.println(arv.inorder());
+
+			}
+
+			System.out.println("\nNomes Professores adicionados a arvore: ");
+
+		}
+
+		System.out.println("\nDeseja adicionar algum nome? 1-sim, 0-não");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			do {
+
+				System.out.println("Digite o nome a ser inserido: ");
+				nome = entrada.nextLine();
+
+				arv.inserir(nome);
+
+				System.out.println("\nDeseja adicionar outro nome? 1-sim, 0-não");
+				opcao = entrada.nextInt();
+
+				entrada.nextLine();
+
+			} while (opcao != 0);
+
+		}
+
+		System.out.println("\nDeseja remover algum nome? 1-sim, 0-não ");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			do {
+
+				System.out.println("\nDigite o nome a ser removido: ");
+				nome = entrada.nextLine();
+
+				arv.Remover(nome);
+
+				System.out.println("\nDeseja remover outro nome? 1-sim, 0-não");
+				opcao = entrada.nextInt();
+
+				entrada.nextLine();
+
+			} while (opcao != 0);
+
+		}
+
+		System.out.println("\nDeseja realizar uma busca? 1-sim, 0-não ");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			do {
+
+				System.out.println("\nDigite o elemnto a ser buscado: ");
+				nome = entrada.nextLine();
+
+				// Metodo Busca
+
+				System.out.println("\nDeseja buscar outro nome? 1-sim, 0-não ");
+				opcao = entrada.nextInt();
+
+				entrada.nextLine();
+
+			} while (opcao != 0);
+
+		}
+
+		System.out.println("\nDeseja imprimir os elementos? 1-sim, 0-não ");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+			System.out.println("\nORDEM: ");
+
+			for (No i : arv.inorder()) {
+				System.out.println(i);
+			}
+
+		} else {
+
+			System.out.println("\nObrigado por utilizar o sistema ;D");
+			System.exit(0);
+		}
+
+		System.out.println("\nDeseja Salvar o arquivo em .csv? 1-sim, 0-não ");
+		opcao = entrada.nextInt();
+
+		entrada.nextLine();
+
+		if (opcao != 0) {
+
+			//Saida.metodoPorScan(arv.inorder());
+
+			System.out.println("\nObrigado por utilizar o sistema ;D");
+		}
+
+		else {
+
+			System.out.println("\nObrigado por utilizar o sistema ;D");
+		}
 	}
 
 	public static ArvoreAvl getArv() {

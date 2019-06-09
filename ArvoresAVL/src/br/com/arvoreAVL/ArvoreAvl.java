@@ -4,79 +4,55 @@ import java.util.ArrayList;
 
 public class ArvoreAvl {
 
-	protected No raiz;
-	protected String raiz2;
-	private No n;
+	public No raiz;
+	
 
-	public void inserir(int k) {
+	public void inserir(String k) {
 		No n = new No(k);
-		inserirAVL(getRaiz(), n);
-	}
-
-	public void inserir2(String k2) {
-		setN(new No(k2));
-		inserirAVL2(getRaiz(), getN());
+		inserirAVL(this.raiz, n);
 	}
 
 	public void inserirAVL(No aComparar, No aInserir) {
-
 		if (aComparar == null) {
-			setRaiz(aInserir);
+			this.raiz = aInserir;
+			System.out.println("Nome inserido como RAIZ \n" + aInserir.getChave());
 
 		} else {
-
-			if (aInserir.getChave() < aComparar.getChave()) {
-
+			if (aInserir.getChave().compareTo(aComparar.getChave()) < 0) {
 				if (aComparar.getEsquerda() == null) {
 					aComparar.setEsquerda(aInserir);
 					aInserir.setPai(aComparar);
 					verificarBalanceamento(aComparar);
+					System.out.println(" \nInserindo " + aInserir + " a esquerda de " + aComparar.getChave());
+					System.out.println(inorder());
+					System.out.println("Raiz: " + raiz);
 
 				} else {
 					inserirAVL(aComparar.getEsquerda(), aInserir);
 				}
-
-			} else if (aInserir.getChave() > aComparar.getChave()) {
+			} else if (aInserir.getChave().compareTo(aComparar.getChave()) > 0) {
 
 				if (aComparar.getDireita() == null) {
 					aComparar.setDireita(aInserir);
 					aInserir.setPai(aComparar);
 					verificarBalanceamento(aComparar);
-
+					System.out.println("\nInserindo " + aInserir + " a direita de " + aComparar.getChave());
+					System.out.println(inorder());
+					System.out.println("Raiz: " + raiz);
 				} else {
 					inserirAVL(aComparar.getDireita(), aInserir);
 				}
-
 			} else {
 				// O nó já existe
-			}
-		}
-	}
-
-//murilo
-	public void inserirAVL2(No aComparar, No aInserir) {
-
-		if (getRaiz2() == null) {
-			setRaiz2(aInserir.getChave2());
-		} else {
-			if (0 < ComparadorDeStrings.comparadorDeStrings(getRaiz2(), aInserir.getChave2())) {
-				if (aComparar.getEsquerda2() == null) {
-					aComparar.setEsquerda2(aInserir.getChave2());
-					aInserir.setPai2(aComparar.getChave2());
-					verificarBalanceamento(aComparar);
-				} else if (0 > ComparadorDeStrings.comparadorDeStrings(getRaiz2(), aInserir.getChave2())) {
-					if (aComparar.getDireita2() == null) {
-						aComparar.setDireita2(aInserir.getChave2());
-						aInserir.setPai2(aComparar.getChave2());
-						verificarBalanceamento(aComparar);
-					}
-				}
+				System.out.println("\nO no já existe " + aInserir);
 			}
 		}
 	}
 
 	public void verificarBalanceamento(No atual) {
+
 		setBalanceamento(atual);
+
 		int balanceamento = atual.getBalanceamento();
 
 		if (balanceamento == -2) {
@@ -105,21 +81,24 @@ public class ArvoreAvl {
 		}
 	}
 
-	public void remover(int k) {
-		removerAVL(this.raiz, k);
+	public void Remover(String k) {
+		RemoverAVL(this.raiz, k);
+		System.out.println("\nRemovendo: " + k);
+		System.out.println(inorder());
+		System.out.println("Raiz: " + raiz);
 	}
 
-	public void removerAVL(No atual, int k) {
+	public void RemoverAVL(No atual, String k) {
 		if (atual == null) {
 			return;
 
 		} else {
 
-			if (atual.getChave() > k) {
-				removerAVL(atual.getEsquerda(), k);
+			if (atual.getChave().compareTo(k) > 0) {
+				RemoverAVL(atual.getEsquerda(), k);
 
-			} else if (atual.getChave() < k) {
-				removerAVL(atual.getDireita(), k);
+			} else if (atual.getChave().compareTo(k) < 0) {
+				RemoverAVL(atual.getDireita(), k);
 
 			} else if (atual.getChave() == k) {
 				removerNoEncontrado(atual);
@@ -281,6 +260,7 @@ public class ArvoreAvl {
 	final protected ArrayList<No> inorder() {
 		ArrayList<No> ret = new ArrayList<No>();
 		inorder(raiz, ret);
+
 		return ret;
 	}
 
@@ -288,47 +268,11 @@ public class ArvoreAvl {
 		if (no == null) {
 			return;
 		}
+
+		lista.add(no);
 		inorder(no.getEsquerda(), lista);
-		lista.add(no);
 		inorder(no.getDireita(), lista);
+
 	}
 
-	final protected ArrayList<No> inorder2() {
-		ArrayList<No> ret = new ArrayList<No>();
-		inorder2(getRaiz(), ret);
-		return ret;
-	}
-
-	final protected void inorder2(No no, ArrayList<No> lista) {
-		if (no == null) {
-			return;
-		}
-		inorder2(no, lista);
-		lista.add(no);
-		inorder2(no, lista);
-	}
-
-	public No getRaiz() {
-		return raiz;
-	}
-
-	public void setRaiz(No raiz) {
-		this.raiz = raiz;
-	}
-
-	public No getN() {
-		return n;
-	}
-
-	public void setN(No n) {
-		this.n = n;
-	}
-
-	public String getRaiz2() {
-		return raiz2;
-	}
-
-	public void setRaiz2(String raiz2) {
-		this.raiz2 = raiz2;
-	}
 }
