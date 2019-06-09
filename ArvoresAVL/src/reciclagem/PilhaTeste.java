@@ -43,7 +43,7 @@ public class PilhaTeste {
 		}
 	}
 
-	public static void PT(String[] leitura) {
+	public static void PT() {
 
 		stack.print();
 		// remove itens da pilha
@@ -59,11 +59,6 @@ public class PilhaTeste {
 			e.printStackTrace();
 		} // fim do catch
 	}// fim do main
-
-	public static void empilha(String[] leitura) {
-		// TODO Auto-generated method stub
-
-	}
 
 	public static int getI() {
 		return i;

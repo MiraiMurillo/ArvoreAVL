@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class ArvoreAvl {
 
-	public No raiz;
+	private No raiz;
 
 	public void inserir(String k) {
 		No n = new No(k);
-		inserirAVL(this.raiz, n);
+		inserirAVL(getRaiz(), n);
 	}
 
 	public void inserirAVL(No aComparar, No aInserir) {
 		if (aComparar == null) {
-			this.raiz = aInserir;
+			setRaiz(aInserir);
 			System.out.println("Nome inserido como RAIZ \n" + aInserir.getChave());
 
 		} else {
@@ -23,8 +23,8 @@ public class ArvoreAvl {
 					aInserir.setPai(aComparar);
 					verificarBalanceamento(aComparar);
 					System.out.println(" \nInserindo " + aInserir + " a esquerda de " + aComparar.getChave());
-					System.out.println(inorder());
-					System.out.println("Raiz: " + raiz);
+					System.out.println(inorder(1));
+					System.out.println("Raiz: " + getRaiz());
 
 				} else {
 					inserirAVL(aComparar.getEsquerda(), aInserir);
@@ -36,8 +36,8 @@ public class ArvoreAvl {
 					aInserir.setPai(aComparar);
 					verificarBalanceamento(aComparar);
 					System.out.println("\nInserindo " + aInserir + " a direita de " + aComparar.getChave());
-					System.out.println(inorder());
-					System.out.println("Raiz: " + raiz);
+					System.out.println(inorder(1));
+					System.out.println("Raiz: " + getRaiz());
 				} else {
 					inserirAVL(aComparar.getDireita(), aInserir);
 				}
@@ -76,15 +76,15 @@ public class ArvoreAvl {
 		if (atual.getPai() != null) {
 			verificarBalanceamento(atual.getPai());
 		} else {
-			this.raiz = atual;
+			setRaiz(atual);
 		}
 	}
 
 	public void Remover(String k) {
-		RemoverAVL(this.raiz, k);
+		RemoverAVL(getRaiz(), k);
 		System.out.println("\nRemovendo: " + k);
-		System.out.println(inorder());
-		System.out.println("Raiz: " + raiz);
+		System.out.println(inorder(1));
+		System.out.println("Raiz: " + getRaiz());
 	}
 
 	public void RemoverAVL(No atual, String k) {
@@ -111,7 +111,7 @@ public class ArvoreAvl {
 		if (aRemover.getEsquerda() == null || aRemover.getDireita() == null) {
 
 			if (aRemover.getPai() == null) {
-				this.raiz = null;
+				setRaiz(null);
 				aRemover = null;
 				return;
 			}
@@ -134,7 +134,7 @@ public class ArvoreAvl {
 		}
 
 		if (r.getPai() == null) {
-			this.raiz = p;
+			setRaiz(p);
 		} else {
 			if (r == r.getPai().getEsquerda()) {
 				r.getPai().setEsquerda(p);
@@ -256,22 +256,57 @@ public class ArvoreAvl {
 		no.setBalanceamento(altura(no.getDireita()) - altura(no.getEsquerda()));
 	}
 
-	final protected ArrayList<No> inorder() {
+	final protected ArrayList<No> inorder(int cod) {
 		ArrayList<No> ret = new ArrayList<No>();
-		inorder2(raiz, ret);
+		inorder2(getRaiz(), ret, cod);
 
 		return ret;
 	}
 
-	final protected void inorder2(No no, ArrayList<No> lista) {
+	final protected void inorder2(No no, ArrayList<No> lista, int cod) {
 		if (no == null) {
 			return;
 		}
 
-		inorder2(no.getEsquerda(), lista);
-		lista.add(no);
-		inorder2(no.getDireita(), lista);
+		if (cod == 1) {
+			inorder2(no.getEsquerda(), lista, cod);
+			lista.add(no);
+			inorder2(no.getDireita(), lista, cod);
+		} else if (cod == 2) {
+			lista.add(no);
+			inorder2(no.getEsquerda(), lista, cod);
+			inorder2(no.getDireita(), lista, cod);
+		} else if (cod == 3) {
+			inorder2(no.getEsquerda(), lista, cod);
+			inorder2(no.getDireita(), lista, cod);
+			lista.add(no);
+		}
+	}
 
+	/*
+	 * public No buscar(String chave) { No atual = getRaiz(); // começa a procurar
+	 * desde raiz
+	 * 
+	 * if (getRaiz() == null) { System.out.println("Árvore Vazia!"); return null; }
+	 * // se arvore vazia else if (atual.getChave() == chave) {
+	 * System.out.println("Item encontrado! "+ chave); } else { while
+	 * (atual.getChave() != chave) { // enquanto nao encontrou if
+	 * (chave.compareTo(atual.getChave()) < 0) { atual = atual.getEsquerda(); } //
+	 * caminha para esquerda else if(chave.compareTo(atual.getChave()) > 0){ atual =
+	 * atual.getDireita(); // caminha para direita } if (atual == null) {
+	 * System.out.println("Não Encontrado!"); return null;// encontrou uma folha ->
+	 * sai } else {
+	 * 
+	 * } } } return atual; // terminou o laço while e chegou aqui é pq encontrou
+	 * item }
+	 */
+
+	public No getRaiz() {
+		return raiz;
+	}
+
+	public void setRaiz(No raiz) {
+		this.raiz = raiz;
 	}
 
 }

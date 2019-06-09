@@ -9,10 +9,9 @@ import br.com.prof.arvore.Lista;
 public class ListaTeste {
 
 	private static int i;
+	private static Lista list = new Lista(); // cria o contêiner de List
 
 	public static void listas(String Leitura) {
-
-		Lista list = new Lista(); // cria o contêiner de List
 
 		try {
 
@@ -41,12 +40,14 @@ public class ListaTeste {
 		} catch (IOException erro) {
 			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
+	}
 
-		// remove objetos da lista; imprime depois de cada remoção
+	// remove objetos da lista; imprime depois de cada remoção
+	public static void retirardalistas() {
 		try {
 			Object removedObject = list.removeNoInicio();
 
-			while (Leitura.length() > 0) {
+			while (list.getTamanhoLista() > 0) {
 				removedObject = list.removeNoFim();
 				System.out.printf("\n%s removido\n", removedObject);
 				list.print();
@@ -65,5 +66,13 @@ public class ListaTeste {
 
 	public static void setI(int i) {
 		ListaTeste.i = i;
+	}
+
+	public static Lista getList() {
+		return list;
+	}
+
+	public static void setList(Lista list) {
+		ListaTeste.list = list;
 	}
 }// fim da classe ListTest

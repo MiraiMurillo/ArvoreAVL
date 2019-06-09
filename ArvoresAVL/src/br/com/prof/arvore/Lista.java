@@ -167,7 +167,7 @@ public class Lista {
 		this.nome = nome;
 	}
 
-	public static int getTamanhoLista() {
+	public int getTamanhoLista() {
 		return tamanhoLista;
 	}
 

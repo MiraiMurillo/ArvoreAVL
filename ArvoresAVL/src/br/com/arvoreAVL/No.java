@@ -6,14 +6,6 @@ public class No {
 	private No pai;
 	private String chave;
 	private int balanceamento;
-	@SuppressWarnings("unused")
-	private String[] sai;
-	@SuppressWarnings("unused")
-	private String nome;
-
-	public void LerArq(String nomeArquivo) {
-		nome = nomeArquivo;
-	}
 
 	public No(String k) {
 		setEsquerda(setDireita(setPai(null)));

@@ -10,10 +10,9 @@ import br.com.prof.arvore.Fila;
 public class FilaTeste {
 
 	private static int i;
+	private static Fila fila = new Fila(); // cria o contêiner de List
 
 	public static void filas(String Leitura) {
-
-		Fila fila = new Fila(); // cria o contêiner de List
 
 		try {
 
@@ -42,9 +41,11 @@ public class FilaTeste {
 		} catch (IOException erro) {
 			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
+	}
 
-		// utiliza o método enqueue
+	// utiliza o método enqueue
 
+	public static void removeDaFila() {
 		// remove os objetos da fila
 		try {
 			Object removedObject;
@@ -66,5 +67,13 @@ public class FilaTeste {
 
 	public static void setI(int i) {
 		FilaTeste.i = i;
+	}
+
+	public static Fila getFila() {
+		return fila;
+	}
+
+	public static void setFila(Fila fila) {
+		FilaTeste.fila = fila;
 	}
 }// fim da classe QueueTest
