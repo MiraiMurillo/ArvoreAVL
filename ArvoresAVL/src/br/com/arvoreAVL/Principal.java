@@ -174,29 +174,5 @@ public class Principal {
 			opcao = entrada.nextInt();
 		} while (opcao != 0);
 	}
-
-	public static ArvoreAvl getArv() {
-		return arv;
-	}
-
-	public static void setArv(ArvoreAvl arv) {
-		Principal.arv = arv;
-	}
-
-	public static Scanner getEntrada() {
-		return entrada;
-	}
-
-	public static void setEntrada(Scanner entrada) {
-		Principal.entrada = entrada;
-	}
-
-	public static int getOpcao() {
-		return opcao;
-	}
-
-	public static void setOpcao(int opcao) {
-		Principal.opcao = opcao;
-	}
 }
 //fim
