@@ -11,7 +11,7 @@ public class ListaTeste {
 	private static int i;
 	private static Lista list = new Lista(); // cria o contêiner de List
 
-	public static void listas(String Leitura) {
+	public static Lista listas(String Leitura) {
 
 		try {
 
@@ -40,6 +40,7 @@ public class ListaTeste {
 		} catch (IOException erro) {
 			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
+		return list;
 	}
 
 	// remove objetos da lista; imprime depois de cada remoção
