@@ -8,6 +8,7 @@ public class Principal {
 	private static int cod;
 	private static String elem;
 
+	@SuppressWarnings("static-access")
 	public static void main(String[] args) {
 
 		entrada = new Scanner(System.in);

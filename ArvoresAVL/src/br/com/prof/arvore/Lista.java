@@ -73,7 +73,7 @@ public class Lista {
 	}// fim do método removeNoFim
 
 	public Object removeNoFim() throws EmptyListException {
-		if (estaVazia()) {
+		if (estaVazia() == true) {
 			throw new EmptyListException(nome); // lança excessão se List estiver vazia
 		}
 

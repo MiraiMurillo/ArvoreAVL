@@ -23,7 +23,7 @@ public class Principal {
 
 		System.out.println("Bem vindo ;D ");
 
-		System.out.println("\nDeseja imprimir a Lista? 1-sim, 0-não");
+		System.out.println("\nDeseja imprimir a Lista?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -33,7 +33,7 @@ public class Principal {
 			ListaTeste.listas("./arq/professores.csv");
 		}
 
-		System.out.println("\nDeseja imprimir a Pilha? 1-sim, 0-não");
+		System.out.println("\nDeseja imprimir a Pilha?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -43,7 +43,7 @@ public class Principal {
 			PilhaTeste.pilhas("./arq/professores.csv");
 		}
 
-		System.out.println("\nDeseja imprimir a Fila? 1-sim, 0-não");
+		System.out.println("\nDeseja imprimir a Fila?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -53,7 +53,7 @@ public class Principal {
 			FilaTeste.filas("./arq/professores.csv");
 		}
 
-		System.out.println("\nDeseja adicionar Nome Professores à Arvore? 1-sim, 0-não");
+		System.out.println("\nDeseja adicionar Nome Professores à Arvore?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -70,7 +70,7 @@ public class Principal {
 
 		}
 
-		System.out.println("\nDeseja adicionar algum nome? 1-sim, 0-não");
+		System.out.println("\nDeseja adicionar algum nome?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -84,7 +84,7 @@ public class Principal {
 
 				arv.inserir(nome);
 
-				System.out.println("\nDeseja adicionar outro nome? 1-sim, 0-não");
+				System.out.println("\nDeseja adicionar outro nome?\n1 - sim\n0 - não");
 				opcao = entrada.nextInt();
 
 				entrada.nextLine();
@@ -93,7 +93,7 @@ public class Principal {
 
 		}
 
-		System.out.println("\nDeseja remover algum nome? 1-sim, 0-não ");
+		System.out.println("\nDeseja remover algum nome?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -107,7 +107,7 @@ public class Principal {
 
 				arv.Remover(nome);
 
-				System.out.println("\nDeseja remover outro nome? 1-sim, 0-não");
+				System.out.println("\nDeseja remover outro nome?\n1 - sim\n0 - não");
 				opcao = entrada.nextInt();
 
 				entrada.nextLine();
@@ -116,7 +116,7 @@ public class Principal {
 
 		}
 
-		System.out.println("\nDeseja realizar uma busca? 1-sim, 0-não ");
+		System.out.println("\nDeseja realizar uma busca?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -130,7 +130,7 @@ public class Principal {
 
 				// Metodo Busca
 
-				System.out.println("\nDeseja buscar outro nome? 1-sim, 0-não ");
+				System.out.println("\nDeseja buscar outro nome?\n1 - sim\n0 - não");
 				opcao = entrada.nextInt();
 
 				entrada.nextLine();
@@ -139,7 +139,7 @@ public class Principal {
 
 		}
 
-		System.out.println("\nDeseja imprimir os elementos? 1-sim, 0-não ");
+		System.out.println("\nDeseja imprimir os elementos?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
@@ -157,14 +157,14 @@ public class Principal {
 			System.exit(0);
 		}
 
-		System.out.println("\nDeseja Salvar o arquivo em .csv? 1-sim, 0-não ");
+		System.out.println("\nDeseja Salvar o arquivo em .csv?\n1 - sim\n0 - não");
 		opcao = entrada.nextInt();
 
 		entrada.nextLine();
 
 		if (opcao != 0) {
 
-			//Saida.metodoPorScan(arv.inorder());
+			// Saida.metodoPorScan(arv.inorder());
 
 			System.out.println("\nObrigado por utilizar o sistema ;D");
 		}

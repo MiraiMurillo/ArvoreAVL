@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class ArvoreAvl {
 
 	public No raiz;
-	
 
 	public void inserir(String k) {
 		No n = new No(k);
@@ -259,19 +258,19 @@ public class ArvoreAvl {
 
 	final protected ArrayList<No> inorder() {
 		ArrayList<No> ret = new ArrayList<No>();
-		inorder(raiz, ret);
+		inorder2(raiz, ret);
 
 		return ret;
 	}
 
-	final protected void inorder(No no, ArrayList<No> lista) {
+	final protected void inorder2(No no, ArrayList<No> lista) {
 		if (no == null) {
 			return;
 		}
 
+		inorder2(no.getEsquerda(), lista);
 		lista.add(no);
-		inorder(no.getEsquerda(), lista);
-		inorder(no.getDireita(), lista);
+		inorder2(no.getDireita(), lista);
 
 	}
 
