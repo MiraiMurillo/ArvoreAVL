@@ -2,7 +2,7 @@ package br.com.prof.arvore;
 
 import java.util.Scanner;
 
-public class Principal {
+public class PrincipalTeste {
 
 	private static Scanner entrada;
 	private static int cod;

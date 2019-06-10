@@ -42,7 +42,7 @@ public class ArvoreAvl {
 					inserirAVL(aComparar.getDireita(), aInserir);
 				}
 			} else {
-				// O nó já existe
+				
 				System.out.println("\nO no já existe " + aInserir);
 			}
 		}
@@ -282,24 +282,6 @@ public class ArvoreAvl {
 			lista.add(no);
 		}
 	}
-
-	/*
-	 * public No buscar(String chave) { No atual = getRaiz(); // começa a procurar
-	 * desde raiz
-	 * 
-	 * if (getRaiz() == null) { System.out.println("Árvore Vazia!"); return null; }
-	 * // se arvore vazia else if (atual.getChave() == chave) {
-	 * System.out.println("Item encontrado! "+ chave); } else { while
-	 * (atual.getChave() != chave) { // enquanto nao encontrou if
-	 * (chave.compareTo(atual.getChave()) < 0) { atual = atual.getEsquerda(); } //
-	 * caminha para esquerda else if(chave.compareTo(atual.getChave()) > 0){ atual =
-	 * atual.getDireita(); // caminha para direita } if (atual == null) {
-	 * System.out.println("Não Encontrado!"); return null;// encontrou uma folha ->
-	 * sai } else {
-	 * 
-	 * } } } return atual; // terminou o laço while e chegou aqui é pq encontrou
-	 * item }
-	 */
 
 	public No getRaiz() {
 		return raiz;

@@ -19,8 +19,6 @@ public class Principal {
 		do {
 			String nome;
 
-			// Leia.profs("./arq/professores.csv");
-
 			System.out.println("\nDeseja imprimir a Lista?\n1 - sim\n0 - não");
 			opcao = entrada.nextInt();
 
@@ -118,22 +116,6 @@ public class Principal {
 				} while (opcao != 0);
 
 			}
-			/*
-			 * System.out.println("\nDeseja realizar uma busca?\n1 - sim\n0 - não");
-			 * 
-			 * opcao = entrada.nextInt(); entrada.nextLine();
-			 * 
-			 * if (opcao != 0) { do {
-			 * System.out.println("\nDigite o elemento a ser buscado: "); nome =
-			 * entrada.nextLine();
-			 * 
-			 * //arv.buscar(nome);
-			 * 
-			 * System.out.println("\nDeseja buscar outro nome?\n1 - sim\n0 - não"); opcao =
-			 * entrada.nextInt();
-			 * 
-			 * entrada.nextLine(); } while (opcao != 0); }
-			 */
 
 			System.out.println("\nDeseja imprimir os elementos?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não");
 			opcao = entrada.nextInt();
@@ -152,23 +134,6 @@ public class Principal {
 				}
 			}
 			System.out.println("\nObrigado por utilizar o sistema ;D");
-
-			/*
-			 * System.out.
-			 * println("\nDeseja Salvar o arquivo em .csv?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não"
-			 * ); opcao = entrada.nextInt();
-			 * 
-			 * entrada.nextLine();
-			 * 
-			 * if (opcao != 0) {
-			 * 
-			 * Saida.metodoPorScan(arv);
-			 * 
-			 * System.out.println("\nObrigado por utilizar o sistema ;D"); } else {
-			 * 
-			 * 
-			 * System.out.println("\nObrigado por utilizar o sistema ;D"); }
-			 */
 
 			System.out.println("\nDeseja reutilizar o programa?\n1 - Sim\n0 - Não");
 			opcao = entrada.nextInt();
