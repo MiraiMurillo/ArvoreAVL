@@ -1,45 +1,19 @@
-package reciclagem;
+package br.com.testes;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.ArrayList;
 
-import br.com.prof.arvore.EmptyListException;
-import br.com.prof.arvore.Pilha;
+import br.com.prof.listas.EmptyListException;
+import br.com.prof.listas.Pilha;
 
 public class PilhaTeste {
 
 	private static int i;
 	private static Pilha stack = new Pilha();
 
-	public static void pilhas(String Leitura) {
-
-		try {
-
-			FileReader arquivo = new FileReader(Leitura);
-
-			BufferedReader leitorLinhas = new BufferedReader(arquivo);
-
-			String linha = "";
-
-			linha = leitorLinhas.readLine();
-
-			setI(0);
-
-			while (linha != null) {
-
-				stack.empilha(linha);
-
-				linha = leitorLinhas.readLine();
-
-				setI(getI() + 1);
-
-				stack.print();
-			}
-			arquivo.close();
-
-		} catch (IOException erro) {
-			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
+	public static void pilhas(ArrayList<String> arrayList) {
+		for (String nome : arrayList) {
+			getStack().empilha(nome);
+			getStack().print();
 		}
 	}
 
@@ -75,4 +49,4 @@ public class PilhaTeste {
 	public static void setStack(Pilha stack) {
 		PilhaTeste.stack = stack;
 	}
-}// fim da classe StackInheritanceTest 
+}// fim da classe StackInheritanceTest

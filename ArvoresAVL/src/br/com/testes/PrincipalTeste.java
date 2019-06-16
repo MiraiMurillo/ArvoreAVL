@@ -1,6 +1,11 @@
-package br.com.prof.arvore;
+package br.com.testes;
 
 import java.util.Scanner;
+
+import br.com.prof.listas.EmptyListException;
+import br.com.prof.listas.Fila;
+import br.com.prof.listas.Lista;
+import br.com.prof.listas.Pilha;
 
 public class PrincipalTeste {
 

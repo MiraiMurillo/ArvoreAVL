@@ -1,143 +1,179 @@
 package br.com.arvoreAVL;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import reciclagem.FilaTeste;
-import reciclagem.ListaTeste;
-import reciclagem.PilhaTeste;
+import br.com.testes.FilaTeste;
+import br.com.testes.ListaTeste;
+import br.com.testes.PilhaTeste;
 
 public class Principal {
 
 	private static ArvoreAvl arv = new ArvoreAvl();
 	private static Scanner entrada = new Scanner(System.in);
 	private static int opcao = 0;
-	private static String[] ler = Leia.profs("./arq/professores.csv");
+	private static ArrayList<String> profsara = Leia.profs("./arq/professores.csv");
+	private static String nome;
 
 	public static void main(String[] args) {
 		System.out.println("Bem vindo ;D ");
 
 		do {
-			String nome;
 
 			System.out.println("\nDeseja imprimir a Lista?\n1 - sim\n0 - não");
-			opcao = entrada.nextInt();
+			setOpcao(getEntrada().nextInt());
 
-			entrada.nextLine();
-			if (opcao != 0) {
+			if (getOpcao() != 0) {
 
-				ListaTeste.listas("./arq/professores.csv");
+				ListaTeste.listas(getProfsara());
 
 				System.out.println("\nDeseja imprimir a saída da Lista?\n1 - sim\n0 - não");
-				opcao = entrada.nextInt();
+				setOpcao(getEntrada().nextInt());
 
-				entrada.nextLine();
-				if (opcao != 0) {
+				if (getOpcao() != 0) {
 					ListaTeste.retirardalistas();
 				}
 			}
 
 			System.out.println("\nDeseja imprimir a Pilha?\n1 - sim\n0 - não");
-			opcao = entrada.nextInt();
+			setOpcao(getEntrada().nextInt());
 
-			entrada.nextLine();
-			if (opcao != 0) {
+			if (getOpcao() != 0) {
 
-				PilhaTeste.pilhas("./arq/professores.csv");
+				PilhaTeste.pilhas(getProfsara());
 				System.out.println("\nDeseja imprimir a saída da Pilha?\n1 - Sim\n0 - Não");
-				opcao = entrada.nextInt();
+				setOpcao(getEntrada().nextInt());
 
-				entrada.nextLine();
-				if (opcao != 0) {
+				if (getOpcao() != 0) {
 					PilhaTeste.PT();
 				}
 			}
 
 			System.out.println("\nDeseja imprimir a Fila?\n1 - sim\n0 - não");
-			opcao = entrada.nextInt();
+			setOpcao(getEntrada().nextInt());
 
-			entrada.nextLine();
-			if (opcao != 0) {
-				FilaTeste.filas("./arq/professores.csv");
+			if (getOpcao() != 0) {
+				FilaTeste.filas(getProfsara());
 				System.out.println("\nDeseja imprimir a saída da Fila?\n1 - Sim\n0 - Não");
-				opcao = entrada.nextInt();
+				setOpcao(getEntrada().nextInt());
 
-				entrada.nextLine();
-				if (opcao != 0) {
+				if (getOpcao() != 0) {
 					FilaTeste.removeDaFila();
 				}
 			}
 
 			System.out.println("\nDeseja adicionar Nome Professores à Arvore?\n1 - sim\n0 - não");
-			opcao = entrada.nextInt();
+			setOpcao(getEntrada().nextInt());
 
-			entrada.nextLine();
-			if (opcao != 0) {
+			if (getOpcao() != 0) {
 
-				for (int i = 0; i < Leia.profs("./arq/professores.csv").length - 1; i++) {
-					arv.inserir(ler[i]);
-					System.out.println(arv.inorder(1));
+				for (String eita : getProfsara()) {
+					getArv().inserir(eita);
 				}
-				System.out.println("\nNomes Professores adicionados a arvore: ");
+				removerdaqui();
 			}
-			System.out.println("\nDeseja adicionar algum nome?\n1 - sim\n0 - não");
-			opcao = entrada.nextInt();
-
-			entrada.nextLine();
-			if (opcao != 0) {
-				do {
-					System.out.println("\nDigite o nome a ser inserido: ");
-					nome = entrada.next();
-
-					arv.inserir(nome);
-
-					System.out.println("\nDeseja adicionar outro nome?\n1 - sim\n0 - não");
-					opcao = entrada.nextInt();
-
-					entrada.nextLine();
-				} while (opcao != 0);
-			}
-			System.out.println("\nDeseja remover algum nome?\n1 - sim\n0 - não");
-			opcao = entrada.nextInt();
-
-			entrada.nextLine();
-
-			if (opcao != 0) {
-				do {
-					System.out.println("\nDigite o nome a ser removido: ");
-					nome = entrada.next();
-					entrada.nextLine();
-
-					arv.Remover(nome);
-
-					System.out.println("\nDeseja remover outro nome?\n1 - sim\n0 - não");
-					opcao = entrada.nextInt();
-
-					entrada.nextLine();
-				} while (opcao != 0);
-
-			}
+			adicionardaqui();
+			removerdaqui();
 
 			System.out.println("\nDeseja imprimir os elementos?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não");
-			opcao = entrada.nextInt();
+			setOpcao(getEntrada().nextInt());
 
-			entrada.nextLine();
-			if (opcao != 0) {
-				if (opcao == 1) {
+			if (getOpcao() != 0) {
+
+				if (getOpcao() == 1) {
 					System.out.println("--Ordem--");
-				} else if (opcao == 2) {
+				} else if (getOpcao() == 2) {
 					System.out.println("--PreOrdem--");
-				} else if (opcao == 3) {
+				} else if (getOpcao() == 3) {
 					System.out.println("--PosOrdem--");
 				}
-				for (No i : arv.inorder(opcao)) {
+				for (No i : arv.inorder(getOpcao())) {
 					System.out.println(i);
 				}
 			}
 			System.out.println("\nObrigado por utilizar o sistema ;D");
 
 			System.out.println("\nDeseja reutilizar o programa?\n1 - Sim\n0 - Não");
-			opcao = entrada.nextInt();
-		} while (opcao != 0);
+			setOpcao(getEntrada().nextInt());
+		} while (getOpcao() != 0);
+	}
+
+	public static void removerdaqui() {
+		System.out.println("\nDeseja remover algum nome?\n1 - sim\n0 - não");
+		setOpcao(getEntrada().nextInt());
+
+		if (getOpcao() != 0) {
+			do {
+				System.out.println("\nDigite o nome a ser removido: ");
+				setNome(getEntrada().next());
+
+				getProfsara().remove(getNome());
+
+				System.out.println("\nDeseja remover outro nome?\n1 - sim\n0 - não");
+				getEntrada().nextLine();
+				setOpcao(getEntrada().nextInt());
+
+			} while (getOpcao() != 0);
+
+		}
+	}
+
+	public static void adicionardaqui() {
+		System.out.println("\nDeseja adicionar algum nome?\n1 - sim\n0 - não");
+		setOpcao(getEntrada().nextInt());
+
+		if (getOpcao() != 0) {
+			do {
+				System.out.println("\nDigite o nome a ser inserido: ");
+				setNome(getEntrada().next());
+
+				getArv().inserir(nome);
+
+				System.out.println("\nDeseja adicionar outro nome?\n1 - sim\n0 - não");
+				setOpcao(getEntrada().nextInt());
+
+			} while (getOpcao() != 0);
+		}
+	}
+
+	public static ArrayList<String> getProfsara() {
+		return profsara;
+	}
+
+	public static void setProfsara(ArrayList<String> profsara) {
+		Principal.profsara = profsara;
+	}
+
+	public static ArvoreAvl getArv() {
+		return arv;
+	}
+
+	public static void setArv(ArvoreAvl arv) {
+		Principal.arv = arv;
+	}
+
+	public static Scanner getEntrada() {
+		return entrada;
+	}
+
+	public static void setEntrada(Scanner entrada) {
+		Principal.entrada = entrada;
+	}
+
+	public static int getOpcao() {
+		return opcao;
+	}
+
+	public static void setOpcao(int opcao) {
+		Principal.opcao = opcao;
+	}
+
+	public static String getNome() {
+		return nome;
+	}
+
+	public static void setNome(String nome) {
+		Principal.nome = nome;
 	}
 }
 //fim

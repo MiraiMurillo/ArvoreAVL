@@ -1,46 +1,21 @@
-package reciclagem;
+package br.com.testes;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import br.com.prof.arvore.EmptyListException;
-import br.com.prof.arvore.Lista;
+import java.util.ArrayList;
+
+import br.com.prof.listas.EmptyListException;
+import br.com.prof.listas.Lista;
 
 public class ListaTeste {
 
 	private static int i;
 	private static Lista list = new Lista(); // cria o contêiner de List
 
-	public static Lista listas(String Leitura) {
+	public static void listas(ArrayList<String> Leitura) {
 
-		try {
-
-			FileReader arquivo = new FileReader(Leitura);
-
-			BufferedReader leitorLinhas = new BufferedReader(arquivo);
-
-			String linha = "";
-
-			linha = leitorLinhas.readLine();
-
-			setI(0);
-
-			while (linha != null) {
-
-				list.insereNoInicio(linha);
-
-				linha = leitorLinhas.readLine();
-
-				setI(getI() + 1);
-
-				list.print();
-			}
-			arquivo.close();
-
-		} catch (IOException erro) {
-			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
+		for (String nome : Leitura) {
+			Lista.insereNoFim(nome);
+			getList().print();
 		}
-		return list;
 	}
 
 	// remove objetos da lista; imprime depois de cada remoção

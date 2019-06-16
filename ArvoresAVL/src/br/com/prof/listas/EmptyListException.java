@@ -1,4 +1,4 @@
-package br.com.prof.arvore;
+package br.com.prof.listas;
 
 public class EmptyListException extends Exception {
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package br.com.prof.arvore;
+package br.com.prof.listas;
 
 //classe para representar um nó em uma lista
 public class ListaNo {

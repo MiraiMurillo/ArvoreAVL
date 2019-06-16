@@ -3,15 +3,19 @@ package br.com.arvoreAVL;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Leia {
-	
-	//funcionando
-	
-	public static String[] profs(String arquivoCSV) {
 
-		String[] professores = null;
-		
+	// funcionando
+
+	private static ArrayList<String> profs;
+	private static int i;
+
+	public static ArrayList<String> profs(String arquivoCSV) {
+
+		setProfs(new ArrayList<String>());
+
 		try {
 
 			FileReader arquivo = new FileReader(arquivoCSV);
@@ -22,23 +26,37 @@ public class Leia {
 
 			linha = leitorLinhas.readLine();
 
-			professores = new String[100];
-
-			int i = 0;
+			setI(0);
 
 			while (linha != null) {
 
-				professores[i] = linha;
+				profs.add(linha);
 
 				linha = leitorLinhas.readLine();
 
-				i++;
+				setI(getI() + 1);
 			}
 			arquivo.close();
 
 		} catch (IOException erro) {
 			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
-		return professores;
+		return getProfs();
+	}
+
+	public static ArrayList<String> getProfs() {
+		return profs;
+	}
+
+	public static void setProfs(ArrayList<String> profs) {
+		Leia.profs = profs;
+	}
+
+	public static int getI() {
+		return i;
+	}
+
+	public static void setI(int i) {
+		Leia.i = i;
 	}
 }

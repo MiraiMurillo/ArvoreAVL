@@ -42,7 +42,7 @@ public class ArvoreAvl {
 					inserirAVL(aComparar.getDireita(), aInserir);
 				}
 			} else {
-				
+
 				System.out.println("\nO no já existe " + aInserir);
 			}
 		}
@@ -116,7 +116,6 @@ public class ArvoreAvl {
 				return;
 			}
 			r = aRemover;
-
 		} else {
 			r = sucessor(aRemover);
 			aRemover.setChave(r.getChave());

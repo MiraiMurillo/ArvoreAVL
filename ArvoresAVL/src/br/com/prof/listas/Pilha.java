@@ -1,4 +1,4 @@
-package br.com.prof.arvore;
+package br.com.prof.listas;
 
 public class Pilha extends Lista {
 	public Pilha() {

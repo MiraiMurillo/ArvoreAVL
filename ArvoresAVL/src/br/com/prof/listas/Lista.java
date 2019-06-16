@@ -1,4 +1,4 @@
-package br.com.prof.arvore;
+package br.com.prof.listas;
 
 //definicao da classe List
 public class Lista {
