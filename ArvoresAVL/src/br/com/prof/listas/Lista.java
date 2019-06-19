@@ -6,7 +6,7 @@ public class Lista {
 	// PrimeiroNó
 	private static ListaNo ultimoNo;// Declara variavel de instancia com o nome de
 	// UltimoNó
-	private String nome; // String como 'lista' usada na impressao
+	private static String nome; // String como 'lista' usada na impressao
 
 	private static int tamanhoLista;
 	private Object aux;
@@ -57,7 +57,7 @@ public class Lista {
 	 * } }
 	 */
 	// remove o primeiro nó de List
-	public Object removeNoInicio() throws EmptyListException {
+	public static Object removeNoInicio() throws EmptyListException {
 		if (estaVazia()) {
 			throw new EmptyListException(nome);
 		}
@@ -72,7 +72,7 @@ public class Lista {
 		return removedItem;// retorna dados de nó removidas
 	}// fim do método removeNoFim
 
-	public Object removeNoFim() throws EmptyListException {
+	public static Object removeNoFim() throws EmptyListException {
 		if (estaVazia() == true) {
 			throw new EmptyListException(nome); // lança excessão se List estiver vazia
 		}
@@ -120,7 +120,7 @@ public class Lista {
 	}// fim do método estaVazia
 		// gera saída do conteúdo de List
 
-	public void print() {
+	public static void print() {
 		if (estaVazia()) {
 			System.out.printf("\nLista Vazia %s\n", nome);
 			System.out.println(imprimeTamanho());
@@ -139,7 +139,7 @@ public class Lista {
 		System.out.println(imprimeTamanho());
 	} // fim do método print
 
-	public String imprimeTamanho() {
+	public static String imprimeTamanho() {
 		return "Tamanho da Lista: " + Lista.tamanhoLista;
 	}
 
@@ -164,10 +164,10 @@ public class Lista {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		Lista.nome = nome;
 	}
 
-	public int getTamanhoLista() {
+	public static int getTamanhoLista() {
 		return tamanhoLista;
 	}
 

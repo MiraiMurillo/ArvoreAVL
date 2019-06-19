@@ -10,7 +10,6 @@ public class Leia {
 	// funcionando
 
 	private static ArrayList<String> profs;
-	private static int i;
 
 	public static ArrayList<String> profs(String arquivoCSV) {
 
@@ -26,15 +25,12 @@ public class Leia {
 
 			linha = leitorLinhas.readLine();
 
-			setI(0);
-
 			while (linha != null) {
 
 				profs.add(linha);
 
 				linha = leitorLinhas.readLine();
 
-				setI(getI() + 1);
 			}
 			arquivo.close();
 
@@ -50,13 +46,5 @@ public class Leia {
 
 	public static void setProfs(ArrayList<String> profs) {
 		Leia.profs = profs;
-	}
-
-	public static int getI() {
-		return i;
-	}
-
-	public static void setI(int i) {
-		Leia.i = i;
 	}
 }

@@ -7,26 +7,23 @@ import br.com.prof.listas.Lista;
 
 public class ListaTeste {
 
-	private static int i;
-	private static Lista list = new Lista(); // cria o contêiner de List
-
 	public static void listas(ArrayList<String> Leitura) {
 
 		for (String nome : Leitura) {
 			Lista.insereNoFim(nome);
-			getList().print();
+			Lista.print();
 		}
 	}
 
 	// remove objetos da lista; imprime depois de cada remoção
 	public static void retirardalistas() {
 		try {
-			Object removedObject = list.removeNoInicio();
+			Object removedObject = Lista.removeNoInicio();
 
-			while (list.getTamanhoLista() > 0) {
-				removedObject = list.removeNoFim();
+			while (Lista.getTamanhoLista() > 0) {
+				removedObject = Lista.removeNoFim();
 				System.out.printf("\n%s removido\n", removedObject);
-				list.print();
+				Lista.print();
 			}
 
 		} // fim do try
@@ -35,20 +32,4 @@ public class ListaTeste {
 		} // fim do catch
 
 	}// fim de main
-
-	public static int getI() {
-		return i;
-	}
-
-	public static void setI(int i) {
-		ListaTeste.i = i;
-	}
-
-	public static Lista getList() {
-		return list;
-	}
-
-	public static void setList(Lista list) {
-		ListaTeste.list = list;
-	}
 }// fim da classe ListTest

@@ -4,17 +4,15 @@ import java.util.ArrayList;
 
 import br.com.prof.listas.EmptyListException;
 import br.com.prof.listas.Fila;
+import br.com.prof.listas.Lista;
 
 public class FilaTeste {
-
-	private static int i;
-	private static Fila fila = new Fila(); // cria o contêiner de List
 
 	public static void filas(ArrayList<String> Leitura) {
 
 		for (String nome : Leitura) {
-			getFila().enfileira(nome);
-			getFila().print();
+			Fila.enfileira(nome);
+			Lista.print();
 		}
 	}
 
@@ -25,9 +23,9 @@ public class FilaTeste {
 		try {
 			Object removedObject;
 			while (!Fila.estaVazia()) {
-				removedObject = getFila().desenfileira();// utiliza método dequeue
+				removedObject = Fila.desenfileira();// utiliza método dequeue
 				System.out.printf("%s saiu da Fila, próximo poderá ser atendido\n", removedObject);
-				getFila().print();
+				Lista.print();
 			} // fim do while
 		} // fim de try
 		catch (EmptyListException e) {
@@ -36,19 +34,4 @@ public class FilaTeste {
 		// fim do catch
 	}// fim de main
 
-	public static int getI() {
-		return i;
-	}
-
-	public static void setI(int i) {
-		FilaTeste.i = i;
-	}
-
-	public static Fila getFila() {
-		return fila;
-	}
-
-	public static void setFila(Fila fila) {
-		FilaTeste.fila = fila;
-	}
 }// fim da classe QueueTest

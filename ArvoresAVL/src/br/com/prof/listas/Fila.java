@@ -8,12 +8,12 @@ public class Fila extends Lista {
 	}// fim do construtor sem argumento Fila
 		// adiciona o objeto à fila
 
-	public void enfileira(Object object) {
+	public static void enfileira(Object object) {
 		insereNoFim(object);
 	}// fim do método enfileira
 		// remove o objeto da fila
 
-	public Object desenfileira() throws EmptyListException {
+	public static Object desenfileira() throws EmptyListException {
 		return removeNoInicio();
 	}// fim do método desenfileira
 		// determina se a fila está vazia
