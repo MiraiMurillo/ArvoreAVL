@@ -23,9 +23,8 @@ public class ArvoreAvl {
 					aInserir.setPai(aComparar);
 					verificarBalanceamento(aComparar);
 					System.out.println(" \nInserindo " + aInserir + " a esquerda de " + aComparar.getChave());
-					System.out.println(inorder(1));
-					System.out.println("Raiz: " + getRaiz());
 
+					System.out.println("Raiz: " + getRaiz());
 				} else {
 					inserirAVL(aComparar.getEsquerda(), aInserir);
 				}
@@ -36,7 +35,6 @@ public class ArvoreAvl {
 					aInserir.setPai(aComparar);
 					verificarBalanceamento(aComparar);
 					System.out.println("\nInserindo " + aInserir + " a direita de " + aComparar.getChave());
-					System.out.println(inorder(1));
 					System.out.println("Raiz: " + getRaiz());
 				} else {
 					inserirAVL(aComparar.getDireita(), aInserir);
@@ -83,8 +81,7 @@ public class ArvoreAvl {
 	public void Remover(String k) {
 		RemoverAVL(getRaiz(), k);
 		System.out.println("\nRemovendo: " + k);
-		System.out.println(inorder(1));
-		System.out.println("Raiz: " + getRaiz());
+		inorder(1);
 	}
 
 	public void RemoverAVL(No atual, String k) {
@@ -107,9 +104,9 @@ public class ArvoreAvl {
 
 	public void removerNoEncontrado(No aRemover) {
 		No r;
+		No p;
 
 		if (aRemover.getEsquerda() == null || aRemover.getDireita() == null) {
-
 			if (aRemover.getPai() == null) {
 				setRaiz(null);
 				aRemover = null;
@@ -117,11 +114,10 @@ public class ArvoreAvl {
 			}
 			r = aRemover;
 		} else {
-			r = sucessor(aRemover);
+			r = Procura(aRemover);
 			aRemover.setChave(r.getChave());
 		}
 
-		No p;
 		if (r.getEsquerda() != null) {
 			p = r.getEsquerda();
 		} else {
@@ -215,12 +211,13 @@ public class ArvoreAvl {
 		return rotacaoEsquerda(inicial);
 	}
 
-	public No sucessor(No q) {
+	public No Procura(No q) {
 		if (q.getDireita() != null) {
 			No r = q.getDireita();
 			while (r.getEsquerda() != null) {
 				r = r.getEsquerda();
 			}
+			System.out.println("R: " + r);
 			return r;
 		} else {
 			No p = q.getPai();
@@ -228,6 +225,7 @@ public class ArvoreAvl {
 				q = p;
 				p = q.getPai();
 			}
+			System.out.println("P: " + p);
 			return p;
 		}
 	}
@@ -289,6 +287,4 @@ public class ArvoreAvl {
 	public void setRaiz(No raiz) {
 		this.raiz = raiz;
 	}
-
 }
-//fim

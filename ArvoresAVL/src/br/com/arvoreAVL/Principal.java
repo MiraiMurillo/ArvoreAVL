@@ -73,9 +73,22 @@ public class Principal {
 				removerdaqui();
 			}
 			adicionardaqui();
-			removerdaqui();
+
+			if (getOpcao() == 1) {
+				removerdaqui();
+			}
+
+			System.out.println("\nDeseja procurar alguém?\n1 - Sim\n0 - Não");
+			setOpcao(getEntrada().nextInt());
+			if (getOpcao() != 0) {
+				System.out.println("Informe o nome a ser procurado: ");
+				setNome(getEntrada().next());
+				No nom = new No(getNome());
+				getArv().Procura(nom);
+			}
 
 			System.out.println("\nDeseja imprimir os elementos?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não");
+			getEntrada().nextLine();
 			setOpcao(getEntrada().nextInt());
 
 			if (getOpcao() != 0) {
@@ -107,7 +120,7 @@ public class Principal {
 				System.out.println("\nDigite o nome a ser removido: ");
 				setNome(getEntrada().next());
 
-				getProfsara().remove(getNome());
+				getArv().Remover(nome);
 
 				System.out.println("\nDeseja remover outro nome?\n1 - sim\n0 - não");
 				getEntrada().nextLine();

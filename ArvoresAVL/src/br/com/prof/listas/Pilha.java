@@ -1,17 +1,16 @@
 package br.com.prof.listas;
 
 public class Pilha extends Lista {
+	
 	public Pilha() {
-		super("stack - pilha");
-	}// fim do construtor sem argumento StackInheritance
-		// adiciona objeto à pilha
+		super("Stack - pilha");
+	}
 
 	public static void empilha(Object object) {
 		insereNoFim(object);
-	}// fim do método push
-		// remove objeto da pilha
+	}
 
 	public static Object desempilha() throws EmptyListException {
 		return removeNoFim();
-	}// fim do método pop
-}// fim da classe StackInheritance
+	}
+}
