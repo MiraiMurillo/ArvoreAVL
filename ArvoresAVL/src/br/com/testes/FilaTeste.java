@@ -20,7 +20,7 @@ public class FilaTeste {
 			Object removedObject;
 			while (!Fila.estaVazia()) {
 				removedObject = Fila.desenfileira();
-				System.out.printf("%s saiu da Fila, próximo poderá ser atendido\n", removedObject);
+				System.out.printf("%s saiu da Fila, prï¿½ximo poderï¿½ ser atendido\n", removedObject);
 				Lista.print();
 			}
 		} catch (EmptyListException e) {

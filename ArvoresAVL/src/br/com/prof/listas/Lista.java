@@ -2,192 +2,147 @@ package br.com.prof.listas;
 
 //definicao da classe List
 public class Lista {
-	private static ListaNo primeiroNo;// Declara variavel de instancia com o nome de
-	// PrimeiroNó
-	private static ListaNo ultimoNo;// Declara variavel de instancia com o nome de
-	// UltimoNó
-	private static String nome; // String como 'lista' usada na impressao
+    private static ListaNo primeiroNo;// Declara variavel de instancia com o nome de
+    // PrimeiroNï¿½
+    private static ListaNo ultimoNo;// Declara variavel de instancia com o nome de
+    // UltimoNï¿½
+    private static String nome; // String como 'lista' usada na impressao
 
-	private static int tamanhoLista;
-	private Object aux;
-	private ListaNo a;
+    private static int tamanhoLista;
+    private Object aux;
+    private ListaNo a;
 
-	// construtor cria List vazia com 'list' como o nome
-	public Lista() {
-		this("Lista");
-		Lista.tamanhoLista = 0;
-	}// fim do construtor sem argumentos List
+    // construtor cria List vazia com 'list' como o nome
+    public Lista() {
+        this("Lista");
+        Lista.tamanhoLista = 0;
+    }// fim do construtor sem argumentos List
 
-	// construtor cria uma List vazia com um nome
-	public Lista(String nomeDaLista) {
-		nome = nomeDaLista;
-		primeiroNo = ultimoNo = null;
-		Lista.tamanhoLista = 0;
-	}// fim do construtor de um argumento List
-		// Insere Object na frente de List
+    // construtor cria uma List vazia com um nome
+    public Lista(String nomeDaLista) {
+        nome = nomeDaLista;
+        primeiroNo = ultimoNo = null;
+        Lista.tamanhoLista = 0;
+    }// fim do construtor de um argumento List
+    // Insere Object na frente de List
 
-	public void insereNoInicio(Object insertItem) {
-		if (estaVazia()) { // first e lastNode referenciam o mesmo objeto
-			primeiroNo = ultimoNo = new ListaNo(insertItem);
-		} else {
-			primeiroNo = new ListaNo(insertItem, primeiroNo);
-		} // fim do método insereNoInicio
+    public void insereNoInicio(Object insertItem) {
+        if (estaVazia()) { // first e lastNode referenciam o mesmo objeto
+            primeiroNo = ultimoNo = new ListaNo(insertItem);
+        } else {
+            primeiroNo = new ListaNo(insertItem, primeiroNo);
+        } // fim do mÃ©todo insereNoInicio
 
-		Lista.tamanhoLista++;
-	}// fim do método insereNoInicio
+        Lista.tamanhoLista++;
+    }// fim do mÃ©todo insereNoInicio
 
-	// insere Object no fim de Lista
-	public static void insereNoFim(Object insertItem) {
-		if (estaVazia()) {
-			primeiroNo = ultimoNo = new ListaNo(insertItem);
-		} else {
-			ultimoNo = ultimoNo.proximoNo = new ListaNo(insertItem);
-		}
-		tamanhoLista++;
-	}// fim do método insereNoFim
+    // insere Object no fim de Lista
+    public static void insereNoFim(Object insertItem) {
+        if (estaVazia()) {
+            primeiroNo = ultimoNo = new ListaNo(insertItem);
+        } else {
+            ultimoNo = ultimoNo.proximoNo = new ListaNo(insertItem);
+        }
+        tamanhoLista++;
+    }// fim do mÃ©todo insereNoFim
 
-	// Insere na posição informada
+    // Insere na posiÃ§Ã£o informada
 
-	/*
-	 * public void insertAtPosicao(int posicao, Object elemento) throws Exception {
-	 * if (posicao >= getTamanhoLista()) { throw new Exception("Erro: Lista Cheia");
-	 * } setAux(new Object()); setAux(getUltimoNo()); setA(getUltimoNo());
-	 * for(getA(); getA() != posicao; a--) {
-	 * 
-	 * } }
-	 */
-	// remove o primeiro nó de List
-	public static Object removeNoInicio() throws EmptyListException {
-		if (estaVazia()) {
-			throw new EmptyListException(nome);
-		}
-		Object removedItem = primeiroNo.data; // recupera dados sendo removidos
-		// atualiza referências primeiroNo e ultimoNo
-		if (primeiroNo == ultimoNo) {
-			primeiroNo = ultimoNo = null;
-		} else {
-			primeiroNo = primeiroNo.proximoNo;
-		}
-		Lista.tamanhoLista--;
-		return removedItem;// retorna dados de nó removidas
-	}// fim do método removeNoFim
+    /*
+     * public void insertAtPosicao(int posicao, Object elemento) throws Exception {
+     * if (posicao >= getTamanhoLista()) { throw new Exception("Erro: Lista Cheia");
+     * } setAux(new Object()); setAux(getUltimoNo()); setA(getUltimoNo());
+     * for(getA(); getA() != posicao; a--) {
+     *
+     * } }
+     */
+    // remove o primeiro nÃ³ de List
+    public static Object removeNoInicio() throws EmptyListException {
+        if (estaVazia()) {
+            throw new EmptyListException(nome);
+        }
+        Object removedItem = primeiroNo.data; // recupera dados sendo removidos
+        // atualiza referÃªncias primeiroNo e ultimoNo
+        if (primeiroNo == ultimoNo) {
+            primeiroNo = ultimoNo = null;
+        } else {
+            primeiroNo = primeiroNo.proximoNo;
+        }
+        Lista.tamanhoLista--;
+        return removedItem;// retorna dados de nÃ³ removidas
+    }// fim do mÃ©todo removeNoFim
 
-	public static Object removeNoFim() throws EmptyListException {
-		if (estaVazia() == true) {
-			throw new EmptyListException(nome); // lança excessão se List estiver vazia
-		}
+    public static Object removeNoFim() throws EmptyListException {
+        if (estaVazia()) {
+            throw new EmptyListException(nome); // lanÃ§a excessÃ£o se List estiver vazia
+        }
 
-		Object removedItem = ultimoNo.data; // recupera dados sendo removidos
+        Object removedItem = ultimoNo.data; // recupera dados sendo removidos
 
-		// atualiza referências primeiroNo e ultimoNo
+        // atualiza referÃªncias primeiroNo e ultimoNo
 
-		if (primeiroNo == ultimoNo) {
-			primeiroNo = ultimoNo = null;
-		}
+        if (primeiroNo == ultimoNo) {
+            primeiroNo = ultimoNo = null;
+        } else { // localiza o novo Ãºltimo nÃ³
+            ListaNo current = primeiroNo;
 
-		else { // localiza o novo último nó
-			ListaNo current = primeiroNo;
+            // faz loop enquanto nÃ³ atual nÃ£o referencia lastNode
+            while (current.proximoNo != ultimoNo) {
+                current = current.proximoNo;
+            }
 
-			// faz loop enquanto nó atual não referencia lastNode
-			while (current.proximoNo != ultimoNo) {
-				current = current.proximoNo;
-			}
+            ultimoNo = current; // atual ï¿½ novo lastNode
+            current.proximoNo = null;
+        } // fim do else
 
-			ultimoNo = current; // atual é novo lastNode
-			current.proximoNo = null;
-		} // fim do else
+        Lista.tamanhoLista--;
+        return removedItem; // retorna dados de nÃ³ removidos
+    }// fim do mÃ©todo removeNoFim
 
-		Lista.tamanhoLista--;
-		return removedItem; // retorna dados de nó removidos
-	}// fim do método removeNoFim
+    /*
+     * public Object removeFromPosicao(int posicao) throws EmptyListException {
+     *
+     *
+     * return null; }
+     */
 
-	/*
-	 * public Object removeFromPosicao(int posicao) throws EmptyListException {
-	 * 
-	 * 
-	 * return null; }
-	 */
+    /*
+     * public boolean buscaElemento(Object elemento) {
+     *
+     * }
+     */
 
-	/*
-	 * public boolean buscaElemento(Object elemento) {
-	 * 
-	 * }
-	 */
+    // Determina se a lista estiver vazia
+    public static boolean estaVazia() {
+        return primeiroNo == null; // retorna true se List estiver vazia
+    }// fim do mÃ©todo estaVazia
+    // gera saÃ­da do conteÃºdo de List
 
-	// Determina se a lista estiver vazia
-	public static boolean estaVazia() {
-		return primeiroNo == null; // retorna true se List estiver vazia
-	}// fim do método estaVazia
-		// gera saída do conteúdo de List
+    public static void print() {
+        if (estaVazia()) {
+            System.out.printf("\nLista Vazia %s\n", nome);
+            System.out.println(imprimeTamanho());
+            return;
+        } // fim do if
 
-	public static void print() {
-		if (estaVazia()) {
-			System.out.printf("\nLista Vazia %s\n", nome);
-			System.out.println(imprimeTamanho());
-			return;
-		} // fim do if
+        System.out.printf("\nA lista %s Ã©: ", nome);
+        ListaNo current = primeiroNo;
+        // enquanto nÃ£o estiver no fim da lista, gera saÃ­da dos dados do nÃ³
+        // atual
+        while (current != null) {
+            System.out.printf("%s -> ", current.data);
+            current = current.proximoNo;
+        } // fim do While
+        System.out.print("\n");
+        System.out.println(imprimeTamanho());
+    } // fim do mÃ©todo print
 
-		System.out.printf("\nA lista %s é: ", nome);
-		ListaNo current = primeiroNo;
-		// enquanto não estiver no fim da lista, gera saída dos dados do nó
-		// atual
-		while (current != null) {
-			System.out.printf("%s -> ", current.data);
-			current = current.proximoNo;
-		} // fim do While
-		System.out.printf("\n");
-		System.out.println(imprimeTamanho());
-	} // fim do método print
+    public static String imprimeTamanho() {
+        return "Tamanho da Lista: " + Lista.tamanhoLista;
+    }
 
-	public static String imprimeTamanho() {
-		return "Tamanho da Lista: " + Lista.tamanhoLista;
-	}
+    public static int getTamanhoLista() {
+        return tamanhoLista;
+    }
 
-	public static ListaNo getPrimeiroNo() {
-		return primeiroNo;
-	}
-
-	public static void setPrimeiroNo(ListaNo primeiroNo) {
-		Lista.primeiroNo = primeiroNo;
-	}
-
-	public static ListaNo getUltimoNo() {
-		return ultimoNo;
-	}
-
-	public static void setUltimoNo(ListaNo ultimoNo) {
-		Lista.ultimoNo = ultimoNo;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		Lista.nome = nome;
-	}
-
-	public static int getTamanhoLista() {
-		return tamanhoLista;
-	}
-
-	public static void setTamanhoLista(int tamanhoLista) {
-		Lista.tamanhoLista = tamanhoLista;
-	}
-
-	public Object getAux() {
-		return aux;
-	}
-
-	public void setAux(Object aux) {
-		this.aux = aux;
-	}
-
-	public ListaNo getA() {
-		return a;
-	}
-
-	public void setA(ListaNo a) {
-		this.a = a;
-	}
 }// fim da classe Lista

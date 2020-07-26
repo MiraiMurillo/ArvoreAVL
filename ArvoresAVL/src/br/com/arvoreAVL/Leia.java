@@ -2,25 +2,25 @@ package br.com.arvoreAVL;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Leia {
 	private static ArrayList<String> profs;
 
 	public static ArrayList<String> profs(String arquivoCSV) {
-		setProfs(new ArrayList<String>());
+		setProfs(new ArrayList<>());
 		try {
-			FileReader arquivo = new FileReader(arquivoCSV);
-			BufferedReader leitorLinhas = new BufferedReader(arquivo);
-			String linha = "";
-			linha = leitorLinhas.readLine();
-			while (linha != null) {
-				profs.add(linha);
-				linha = leitorLinhas.readLine();
+			try (FileReader arquivo = new FileReader(arquivoCSV)) {
+				try (BufferedReader leitorLinhas = new BufferedReader(arquivo)) {
+					String linha;
+					linha = leitorLinhas.readLine();
+					while (linha != null) {
+						profs.add(linha);
+						linha = leitorLinhas.readLine();
+					}
+				}
 			}
-			arquivo.close();
-		} catch (IOException erro) {
+		} catch (Exception erro) {
 			System.out.println("Erro ao ler arquivo: " + erro.getMessage());
 		}
 		return getProfs();

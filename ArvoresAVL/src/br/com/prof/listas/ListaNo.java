@@ -1,38 +1,22 @@
 package br.com.prof.listas;
 
-//classe para representar um nó em uma lista
+//classe para representar um nÃ³ em uma lista
 public class ListaNo {
-	Object data;
-	ListaNo proximoNo;
+    final Object data;
+    ListaNo proximoNo;
 
-	ListaNo(Object object) {
-		this(object, null);
-	}// Fim do construtor de um argumento ListaNo
+    ListaNo(Object object) {
+        this(object, null);
+    }// Fim do construtor de um argumento ListaNo
 
-	// construtor cria ListaNo que referencia
+    // construtor cria ListaNo que referencia
 
-	// Object e o próximo ListaNo
-	ListaNo(Object object, ListaNo node) {
-		data = object;
-		proximoNo = node;
-	}// fim do construtor de dois argumentos ListaNo
+    // Object e o prÃ³ximo ListaNo
+    ListaNo(Object object, ListaNo node) {
+        data = object;
+        proximoNo = node;
+    }// fim do construtor de dois argumentos ListaNo
 
-	// seta um objeto data
-	public void setData(Object data) {
-		this.data = data;
-	}
+    // retorna referÃªncia ao prÃ³ximo nÃ³ na lista
 
-	// retorna referência aos dados no nó
-	Object getData() {
-		return data; // retorna Object nesse nó
-	}// fim do método getObject
-		// retorna referência ao próximo nó na lista
-
-	ListaNo getProximoNo() {
-		return proximoNo; // obtém próximo nó
-	}// fim do método getNext
-
-	public void setProximoNo(ListaNo novo) {
-		this.proximoNo = novo;
-	}
 }// fim da classe ListaNo

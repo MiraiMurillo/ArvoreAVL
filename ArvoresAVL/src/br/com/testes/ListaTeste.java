@@ -16,7 +16,7 @@ public class ListaTeste {
 
 	public static void retirardalistas() {
 		try {
-			Object removedObject = Lista.removeNoInicio();
+			Object removedObject;
 			while (Lista.getTamanhoLista() > 0) {
 				removedObject = Lista.removeNoFim();
 				System.out.printf("\n%s removido\n", removedObject);

@@ -16,7 +16,7 @@ public class PilhaTeste {
 	public static void PT() {
 		Pilha.print();
 		try {
-			Object removedObject = null;
+			Object removedObject;
 			while (!Pilha.imprimeTamanho().equals("Tamanho da Lista: 0")) {
 				removedObject = Pilha.desempilha();
 				System.out.printf("%s removido da pilha\n", removedObject);
