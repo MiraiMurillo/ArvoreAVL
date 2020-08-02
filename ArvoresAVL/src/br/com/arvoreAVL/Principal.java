@@ -19,39 +19,55 @@ public class Principal {
         System.out.println("Bem vindo ;D ");
 
         do {
-
-            System.out.println("\nDeseja imprimir a Lista?\n1 - sim\n0 - não");
-            setOpcao(getEntrada().nextInt());
-
+            do {
+                System.out.println("\nDeseja imprimir a Lista?\n1 - sim\n0 - não");
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1) {
+                    System.out.println("\nOpção não identificável.");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1);
             if (getOpcao() != 0) {
 
                 ListaTeste.listas(getProfsara());
-
-                System.out.println("\nDeseja imprimir a sa�da da Lista?\n1 - sim\n0 - não");
-                setOpcao(getEntrada().nextInt());
-
+                do {
+                    System.out.println("\nDeseja imprimir a saída da Lista?\n1 - sim\n0 - não");
+                    setOpcao(getEntrada().nextInt());
+                    if (getOpcao() != 0 && getOpcao() != 1) {
+                        System.out.println("\nOpção não identificável.");
+                    }
+                } while (getOpcao() != 0 && getOpcao() != 1);
                 if (getOpcao() != 0) {
                     ListaTeste.retirardalistas();
                 }
             }
-
-            System.out.println("\nDeseja imprimir a Pilha?\n1 - sim\n0 - não");
-            setOpcao(getEntrada().nextInt());
-
+            do {
+                System.out.println("\nDeseja imprimir a Pilha?\n1 - sim\n0 - não");
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1) {
+                    System.out.println("\nOpção não identificável.");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1);
             if (getOpcao() != 0) {
 
                 PilhaTeste.pilhas(getProfsara());
-                System.out.println("\nDeseja imprimir a saída da Pilha?\n1 - Sim\n0 - Não");
-                setOpcao(getEntrada().nextInt());
-
+                do {
+                    System.out.println("\nDeseja imprimir a saída da Pilha?\n1 - Sim\n0 - Não");
+                    setOpcao(getEntrada().nextInt());
+                    if (getOpcao() != 0 && getOpcao() != 1) {
+                        System.out.println("\nOpção não identificável");
+                    }
+                } while (getOpcao() != 0 && getOpcao() != 1);
                 if (getOpcao() != 0) {
                     PilhaTeste.PT();
                 }
             }
-
-            System.out.println("\nDeseja imprimir a Fila?\n1 - sim\n0 - não");
-            setOpcao(getEntrada().nextInt());
-
+            do {
+                System.out.println("\nDeseja imprimir a Fila?\n1 - sim\n0 - não");
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1) {
+                    System.out.println("\nOpção não identificável.");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1);
             if (getOpcao() != 0) {
                 FilaTeste.filas(getProfsara());
                 System.out.println("\nDeseja imprimir a saída da Fila?\n1 - Sim\n0 - Não");
@@ -61,10 +77,13 @@ public class Principal {
                     FilaTeste.removeDaFila();
                 }
             }
-
-            System.out.println("\nDeseja adicionar Nome Professores à Arvore?\n1 - sim\n0 - não");
-            setOpcao(getEntrada().nextInt());
-
+            do {
+                System.out.println("\nDeseja adicionar Nome Professores à Arvore?\n1 - sim\n0 - não");
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1) {
+                    System.out.println("\nOpção não identificável");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1);
             if (getOpcao() != 0) {
 
                 for (String eita : getProfsara()) {
@@ -77,27 +96,34 @@ public class Principal {
             if (getOpcao() == 1) {
                 removerdaqui();
             }
-
-            System.out.println("\nDeseja procurar alguém?\n1 - Sim\n0 - Não");
-            setOpcao(getEntrada().nextInt());
+            do {
+                System.out.println("\nDeseja procurar alguém?\n1 - Sim\n0 - Não");
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1) {
+                    System.out.println("\nOpção não identificável");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1);
             if (getOpcao() != 0) {
                 System.out.println("Informe o nome a ser procurado: ");
                 setNome(getEntrada().next());
                 No nom = new No(getNome());
                 getArv().Procura(nom);
             }
-
-            System.out.println("\nDeseja imprimir os elementos?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não");
-            getEntrada().nextLine();
-            setOpcao(getEntrada().nextInt());
-
+            do {
+                System.out.println("\nDeseja imprimir os elementos?\n1 - Ordem\n2 - PreOrdem\n3 - PosOrdem\n0 - Não");
+                getEntrada().nextLine();
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1 && getOpcao() != 2 && getOpcao() != 3) {
+                    System.out.println("\nOpção não identificável.");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1 && getOpcao() != 2 && getOpcao() != 3);
             if (getOpcao() != 0) {
 
                 if (getOpcao() == 1) {
                     System.out.println("--Ordem--");
                 } else if (getOpcao() == 2) {
                     System.out.println("--PreOrdem--");
-                } else if (getOpcao() == 3) {
+                } else {
                     System.out.println("--PosOrdem--");
                 }
                 for (No i : arv.inorder(getOpcao())) {
@@ -105,46 +131,64 @@ public class Principal {
                 }
             }
             System.out.println("\nObrigado por utilizar o sistema ;D");
-
-            System.out.println("\nDeseja reutilizar o programa?\n1 - Sim\n0 - Não");
-            setOpcao(getEntrada().nextInt());
+            do {
+                System.out.println("\nDeseja reutilizar o programa?\n1 - Sim\n0 - Não");
+                setOpcao(getEntrada().nextInt());
+                if (getOpcao() != 0 && getOpcao() != 1) {
+                    System.out.println("\nNúmero não indentificável como opção.");
+                }
+            } while (getOpcao() != 0 && getOpcao() != 1);
         } while (getOpcao() != 0);
     }
 
     public static void removerdaqui() {
-        System.out.println("\nDeseja remover algum nome?\n1 - sim\n0 - não");
-        setOpcao(getEntrada().nextInt());
-
+        do {
+            System.out.println("\nDeseja remover algum nome?\n1 - sim\n0 - não");
+            setOpcao(getEntrada().nextInt());
+            if (getOpcao() != 0 && getOpcao() != 1) {
+                System.out.println("\nOpção não identificável.");
+            }
+        } while (getOpcao() != 0 && getOpcao() != 1);
         if (getOpcao() != 0) {
             do {
                 System.out.println("\nDigite o nome a ser removido: ");
                 setNome(getEntrada().next());
 
                 getArv().Remover(nome);
-
-                System.out.println("\nDeseja remover outro nome?\n1 - sim\n0 - não");
-                getEntrada().nextLine();
-                setOpcao(getEntrada().nextInt());
-
+                do {
+                    System.out.println("\nDeseja remover outro nome?\n1 - sim\n0 - não");
+                    getEntrada().nextLine();
+                    setOpcao(getEntrada().nextInt());
+                    if (getOpcao() != 0 && getOpcao() != 1) {
+                        System.out.println("\nOpção não identificável.");
+                    }
+                } while (getOpcao() != 0 && getOpcao() != 1);
             } while (getOpcao() != 0);
 
         }
     }
 
     public static void adicionardaqui() {
-        System.out.println("\nDeseja adicionar algum nome?\n1 - sim\n0 - não");
-        setOpcao(getEntrada().nextInt());
-
+        do {
+            System.out.println("\nDeseja adicionar algum nome?\n1 - sim\n0 - não");
+            setOpcao(getEntrada().nextInt());
+            if (getOpcao() != 0 && getOpcao() != 1) {
+                System.out.println("\nOpção não identificável.");
+            }
+        } while (getOpcao() != 0 && getOpcao() != 1);
         if (getOpcao() != 0) {
             do {
                 System.out.println("\nDigite o nome a ser inserido: ");
                 setNome(getEntrada().next());
 
                 getArv().inserir(nome);
-
-                System.out.println("\nDeseja adicionar outro nome?\n1 - sim\n0 - não");
-                setOpcao(getEntrada().nextInt());
-
+                do {
+                    System.out.println("\nDeseja adicionar outro nome?\n1 - sim\n0 - não");
+                    setOpcao(getEntrada().nextInt());
+                    if (getOpcao() != 0 && getOpcao() != 1) {
+                        System.out.println("\nOpção não identificável.");
+                    }
+                } while (getOpcao() != 0 && getOpcao() != 1);
             } while (getOpcao() != 0);
         }
     }

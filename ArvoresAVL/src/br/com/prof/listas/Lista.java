@@ -3,14 +3,12 @@ package br.com.prof.listas;
 //definicao da classe List
 public class Lista {
     private static ListaNo primeiroNo;// Declara variavel de instancia com o nome de
-    // PrimeiroN�
+    // PrimeiroNó
     private static ListaNo ultimoNo;// Declara variavel de instancia com o nome de
-    // UltimoN�
+    // UltimoNó
     private static String nome; // String como 'lista' usada na impressao
 
     private static int tamanhoLista;
-    private Object aux;
-    private ListaNo a;
 
     // construtor cria List vazia com 'list' como o nome
     public Lista() {
@@ -125,7 +123,7 @@ public class Lista {
             return;
         } // fim do if
 
-        System.out.printf("\nA lista %s é: ", nome);
+        System.out.printf("\nA lista do tipo %s é: ", nome);
         ListaNo current = primeiroNo;
         // enquanto não estiver no fim da lista, gera saída dos dados do nó
         // atual
