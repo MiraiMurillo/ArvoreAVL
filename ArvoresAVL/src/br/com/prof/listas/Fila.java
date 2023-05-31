@@ -3,7 +3,7 @@ package br.com.prof.listas;
 public class Fila extends Lista {
 
     public Fila() {
-        super("Queue - Fila");
+        super("Fila");
     }
 
     public void enfileira(Object object) {
