@@ -6,11 +6,11 @@ public class Pilha extends Lista {
         super("Stack - pilha");
     }
 
-    public static void empilha(Object object) {
+    public void empilha(Object object) {
         insereNoFim(object);
     }
 
-    public static Object desempilha() throws EmptyListException {
+    public Object desempilha() throws EmptyListException {
         return removeNoFim();
     }
 }

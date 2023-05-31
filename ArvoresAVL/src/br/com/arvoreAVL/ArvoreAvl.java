@@ -8,12 +8,12 @@ public class ArvoreAvl {
 
     public void inserir(String k) {
         No n = new No(k);
-        inserirAVL(getRaiz(), n);
+        inserirAVL(raiz, n);
     }
 
     public void inserirAVL(No aComparar, No aInserir) {
         if (aComparar == null) {
-            setRaiz(aInserir);
+            raiz = aInserir;
             System.out.println("Nome inserido como RAIZ \n" + aInserir.getChave());
 
         } else {
@@ -22,9 +22,9 @@ public class ArvoreAvl {
                     aComparar.setEsquerda(aInserir);
                     aInserir.setPai(aComparar);
                     verificarBalanceamento(aComparar);
-                    System.out.println(" \nInserindo " + aInserir + " a esquerda de " + aComparar.getChave());
+                    System.out.println(" \nInserindo " + aInserir.getChave() + " a esquerda de " + aComparar.getChave());
 
-                    System.out.println("Raiz: " + getRaiz());
+                    System.out.println("Raiz: " + raiz.getChave());
                 } else {
                     inserirAVL(aComparar.getEsquerda(), aInserir);
                 }
@@ -34,14 +34,14 @@ public class ArvoreAvl {
                     aComparar.setDireita(aInserir);
                     aInserir.setPai(aComparar);
                     verificarBalanceamento(aComparar);
-                    System.out.println("\nInserindo " + aInserir + " a direita de " + aComparar.getChave());
-                    System.out.println("Raiz: " + getRaiz());
+                    System.out.println("\nInserindo " + aInserir.getChave() + " a direita de " + aComparar.getChave());
+                    System.out.println("Raiz: " + raiz.getChave());
                 } else {
                     inserirAVL(aComparar.getDireita(), aInserir);
                 }
             } else {
 
-                System.out.println("\nO no já existe " + aInserir);
+                System.out.printf("\nO No %s já existe ", aInserir.getChave());
             }
         }
     }
@@ -74,24 +74,24 @@ public class ArvoreAvl {
         if (atual.getPai() != null) {
             verificarBalanceamento(atual.getPai());
         } else {
-            setRaiz(atual);
+            raiz = atual;
         }
     }
 
-    public void Remover(String k) {
-        RemoverAVL(getRaiz(), k);
+    public void remover(String k) {
+        removerAVL(raiz, k);
         System.out.println("\nRemovendo: " + k);
         inorder(1);
     }
 
-    public void RemoverAVL(No atual, String k) {
+    public void removerAVL(No atual, String k) {
         if (atual != null) {
 
             if (atual.getChave().compareTo(k) > 0) {
-                RemoverAVL(atual.getEsquerda(), k);
+                removerAVL(atual.getEsquerda(), k);
 
             } else if (atual.getChave().compareTo(k) < 0) {
-                RemoverAVL(atual.getDireita(), k);
+                removerAVL(atual.getDireita(), k);
 
             } else if (atual.getChave().equals(k)) {
                 removerNoEncontrado(atual);
@@ -105,12 +105,12 @@ public class ArvoreAvl {
 
         if (aRemover.getEsquerda() == null || aRemover.getDireita() == null) {
             if (aRemover.getPai() == null) {
-                setRaiz(null);
+                raiz = null;
                 return;
             }
             r = aRemover;
         } else {
-            r = Procura(aRemover);
+            r = procura(aRemover.getChave());
             aRemover.setChave(r.getChave());
         }
 
@@ -125,7 +125,7 @@ public class ArvoreAvl {
         }
 
         if (r.getPai() == null) {
-            setRaiz(p);
+            raiz = p;
         } else {
             if (r == r.getPai().getEsquerda()) {
                 r.getPai().setEsquerda(p);
@@ -206,24 +206,21 @@ public class ArvoreAvl {
         return rotacaoEsquerda(inicial);
     }
 
-    public No Procura(No q) {
-        if (q.getDireita() != null) {
-            No r = q.getDireita();
-            while (r.getEsquerda() != null) {
-                r = r.getEsquerda();
+    public No procura(String chave) {
+        No atual = raiz;
+        while (atual != null) {
+            int comparacao = chave.compareTo(atual.getChave());
+            if (comparacao == 0) {
+                return atual;  // Nó encontrado
+            } else if (comparacao < 0) {
+                atual = atual.getEsquerda();  // Procurar na subárvore esquerda
+            } else {
+                atual = atual.getDireita();  // Procurar na subárvore direita
             }
-            System.out.println("R: " + r);
-            return r;
-        } else {
-            No p = q.getPai();
-            while (p != null && q == p.getDireita()) {
-                q = p;
-                p = q.getPai();
-            }
-            System.out.println("P: " + p);
-            return p;
         }
+        return null;  // Nó não encontrado
     }
+
 
     private int altura(No atual) {
         if (atual == null) {
@@ -250,7 +247,7 @@ public class ArvoreAvl {
 
     final protected ArrayList<No> inorder(int cod) {
         ArrayList<No> ret = new ArrayList<>();
-        inorder2(getRaiz(), ret, cod);
+        inorder2(raiz, ret, cod);
 
         return ret;
     }
@@ -275,11 +272,4 @@ public class ArvoreAvl {
         }
     }
 
-    public No getRaiz() {
-        return raiz;
-    }
-
-    public void setRaiz(No raiz) {
-        this.raiz = raiz;
-    }
 }

@@ -1,20 +1,38 @@
 package br.com.arvoreAVL;
 
 public class No {
-    private No esquerda;
-    private No direita;
-    private No pai;
+    private No esquerda = null;
+    private No direita = null;
+    private No pai = null;
     private String chave;
-    private int balanceamento;
+    private int balanceamento = 0;
 
     public No(String k) {
-        setEsquerda(setDireita(setPai(null)));
-        setBalanceamento(0);
-        setChave(k);
+        chave = k;
     }
 
-    public String toString() {
-        return getChave();
+    public No getEsquerda() {
+        return esquerda;
+    }
+
+    public void setEsquerda(No esquerda) {
+        this.esquerda = esquerda;
+    }
+
+    public No getDireita() {
+        return direita;
+    }
+
+    public void setDireita(No direita) {
+        this.direita = direita;
+    }
+
+    public No getPai() {
+        return pai;
+    }
+
+    public void setPai(No pai) {
+        this.pai = pai;
     }
 
     public String getChave() {
@@ -31,31 +49,5 @@ public class No {
 
     public void setBalanceamento(int balanceamento) {
         this.balanceamento = balanceamento;
-    }
-
-    public No getPai() {
-        return pai;
-    }
-
-    public No setPai(No pai) {
-        this.pai = pai;
-        return pai;
-    }
-
-    public No getDireita() {
-        return direita;
-    }
-
-    public No setDireita(No direita) {
-        this.direita = direita;
-        return direita;
-    }
-
-    public No getEsquerda() {
-        return esquerda;
-    }
-
-    public void setEsquerda(No esquerda) {
-        this.esquerda = esquerda;
     }
 }

@@ -6,11 +6,11 @@ public class Fila extends Lista {
         super("Queue - Fila");
     }
 
-    public static void enfileira(Object object) {
+    public void enfileira(Object object) {
         insereNoFim(object);
     }
 
-    public static Object desenfileira() throws EmptyListException {
+    public Object desenfileira() throws EmptyListException {
         return removeNoInicio();
     }
 }
