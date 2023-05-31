@@ -1,3 +1,3 @@
 # ArvoreAVL
 
-Destinado ao trabalho de estrutura
+Destinado ao trabalho de estrutura de dados.
